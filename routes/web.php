@@ -7,10 +7,10 @@ use App\Http\Controllers\QuartosController;
 //     return view('welcome');
 // });
 
-Route::get('/', fn() => view('welcome'));
+Route::get('/', fn() => view('login'));
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/index', fn() => view('index'));
+
+Route::get('/fazerReserva', fn() => view('fazerReserva'));
 
 Route::resource('quartos', QuartosController::class);
