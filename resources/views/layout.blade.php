@@ -424,27 +424,6 @@ nav {
    Parte 2: Estilos da página de login/cadastro
    ============================================= */
 
-:root {
-    --primary: #BF4646;       
-    --bege: #EDDCC6;
-    --creme: #FFF4EA;
-    --teal: #7EACB5;
-    --dark: #0f0f0f;
-    --text: #333;
-    --gray: #555;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--creme);
-    min-height: 100vh;
-    color: var(--text);
-    /*display: flex;*/
-    align-items: center;
-    justify-content: center;
-    padding: 0px;
-}
-
 .container {
     background: var(--bege);
     border-radius: 16px;
@@ -452,13 +431,12 @@ body {
     overflow: hidden;
     width: 100%;
     max-width: 440px;
-    max-width: 440px;          /* ← isso limita a largura */
-    margin: 150px auto;             /* ← centraliza horizontalmente */ 
+    margin: 150px auto;
 }
 
 .tabs {
     display: flex;
-    background: var(--teal);
+    background: var(--secundaria);
 }
 
 .tab {
@@ -473,8 +451,8 @@ body {
 }
 
 .tab.active {
-    background: var(--primary);
-    border-bottom: 4px solid var(--primary);
+    background: var(--primaria);
+    border-bottom: 4px solid var(--primaria);
 }
 
 .tab:hover:not(.active) {
@@ -483,24 +461,16 @@ body {
 
 .form-container {
     padding: 2.2rem 2rem;
-    background: var(--creme);
+    background: var(--clara);
 }
 
 h1 {
     text-align: center;
-    color: var(--primary);
+    color: var(--primaria);
     font-size: 1.7rem;
     margin-bottom: 1.8rem;
     font-weight: 700;
 }
-
-.logo {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #e74c3c;            /* cor principal do seu sistema */
-    margin-bottom: 1.8rem;
-  }
 
 .form-group {
     margin-bottom: 1.4rem;
@@ -527,7 +497,7 @@ input {
 
 input:focus {
     outline: none;
-    border-color: var(--primary);
+    border-color: var(--primaria);
     box-shadow: 0 0 0 3px rgba(191, 70, 70, 0.15);
 }
 
@@ -542,7 +512,7 @@ input:focus {
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--teal);
+    color: var(--secundaria);
     cursor: pointer;
     font-size: 1.3rem;
 }
@@ -550,7 +520,7 @@ input:focus {
 button {
     width: 100%;
     padding: 1.05rem;
-    background: var(--primary);
+    background: var(--primaria);
     color: white;
     border: none;
     border-radius: 10px;
@@ -571,17 +541,17 @@ button:hover {
     text-align: center;
     margin-top: 1.4rem;
     font-size: 0.92rem;
-    color: var(--gray);
+    color: #555;
 }
 
 .extras a {
-    color: var(--teal);
+    color: var(--secundaria);
     text-decoration: none;
     font-weight: 500;
 }
 
 .extras a:hover {
-    color: var(--primary);
+    color: var(--primaria);
     text-decoration: underline;
 }
 
@@ -597,67 +567,12 @@ button:hover {
     .form-container {
       padding: 2rem 1.4rem;
     }
-  }
-  </style>
-</head>
-<body>
-    @yield('conteudo')
-    
-    <footer>
-    <div class="footer-container">
-      <div class="footer-col">
-        <h3>Grand Hotel</h3>
-        <p>Experiência de luxo e conforto desde 1985</p>
-        
-        <div class="social">
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Twitter/X">🐦</a>
-          <a href="#" aria-label="WhatsApp">💬</a>
-        </div>
-      </div>
+}
 
-      <div class="footer-col">
-        <h4>Links Úteis</h4>
-        <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#quartos">Quartos</a></li>
-          <li><a href="#">Comodidades</a></li>
-          <li><a href="#">Contato</a></li>
-        </ul>
-      </div>
+    /* =============================================
+       Footer Styles
+       ============================================= */
 
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <ul class="contact-info">
-          <li>📍 Av. Principal, 1234 - Centro</li>
-          <li>Presidente Prudente - SP</li>
-          <li>📞 (18) 99999-8888</li>
-          <li>✉️ reservas@grandhotel.com.br</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Horário</h4>
-        <ul class="contact-info">
-          <li>Recepção 24 horas</li>
-          <li>Check-in: 14:00</li>
-          <li>Check-out: 12:00</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 Grand Hotel. Todos os direitos reservados.</p>
-      <div class="legal">
-        <a href="#">Política de Privacidade</a> • 
-        <a href="#">Termos de Uso</a>
-      </div>
-    </div>
-  </footer>
-
-  <style>
     footer {
       background: var(--escuro);
       color: white;
@@ -783,5 +698,62 @@ button:hover {
       }
     }
   </style>
+</head>
+<body>
+    @yield('conteudo')
+    
+    <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>Grand Hotel</h3>
+        <p>Experiência de luxo e conforto desde 1985</p>
+        
+        <div class="social">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Twitter/X">🐦</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#quartos">Quartos</a></li>
+          <li><a href="#">Comodidades</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li>📍 Av. Principal, 1234 - Centro</li>
+          <li>Presidente Prudente - SP</li>
+          <li>📞 (18) 99999-8888</li>
+          <li>✉️ reservas@grandhotel.com.br</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horário</h4>
+        <ul class="contact-info">
+          <li>Recepção 24 horas</li>
+          <li>Check-in: 14:00</li>
+          <li>Check-out: 12:00</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Grand Hotel. Todos os direitos reservados.</p>
+      <div class="legal">
+        <a href="#">Política de Privacidade</a> • 
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

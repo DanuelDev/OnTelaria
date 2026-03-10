@@ -1,0 +1,1072 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* ==========================================================================
+   Estilos da tela de Login / Registro - Hotel Serenidade
+   Cores: #BF4646  #EDDCC6  #FFF4EA  #7EACB5
+   ========================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: #FFF4EA;
+  min-height: 100vh;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-container {
+  background: #EDDCC6;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(191, 70, 70, 0.12);
+  overflow: hidden;
+  width: 100%;
+  max-width: 440px;
+}
+
+.auth-tabs {
+  display: flex;
+  background: #7EACB5;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+  border-bottom: 4px solid transparent;
+}
+
+.auth-tab.active {
+  background: #BF4646;
+  border-bottom: 4px solid #BF4646;
+}
+
+.auth-tab:hover:not(.active) {
+  background: rgba(191, 70, 70, 0.15);
+}
+
+.auth-form-container {
+  padding: 2.2rem 2rem;
+  background: #FFF4EA;
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #7EACB5;
+  letter-spacing: 1px;
+}
+
+.auth-title {
+  text-align: center;
+  color: #BF4646;
+  font-size: 1.7rem;
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.95rem 1.2rem;
+  border: 2px solid #EDDCC6;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.25s;
+  font-family: var(--font-sans);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #BF4646;
+  box-shadow: 0 0 0 3px rgba(191, 70, 70, 0.15);
+}
+
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #7EACB5;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1.05rem;
+  background: #BF4646;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1.3rem;
+  font-family: var(--font-sans);
+}
+
+.auth-button:hover {
+  background: #a03a3a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(191, 70, 70, 0.3);
+}
+
+.auth-extras {
+  text-align: center;
+  margin-top: 1.4rem;
+  font-size: 0.92rem;
+  color: #555;
+}
+
+.auth-extras a {
+  color: #7EACB5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-extras a:hover {
+  color: #BF4646;
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    margin: 10px;
+  }
+  .auth-form-container {
+    padding: 1.8rem 1.4rem;
+  }
+}
+
+/* ==========================================================================
+   Estilos do Layout Principal - Header, Hero, Sobre, Quartos, Footer
+   ========================================================================== */
+
+:root {
+    --primaria: #BF4646;
+    --secundaria: #7EACB5;
+    --bege: #EDDCC6;
+    --clara: #FFF4EA;
+    --escuro: #111;
+    --cinza: #333;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    border-bottom: 1px solid #eee;
+    z-index: 10;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primaria);
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu a {
+    color: var(--cinza);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.menu a:hover {
+    color: var(--secundaria);
+}
+
+.btn-reserva {
+    background: var(--primaria);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-reserva:hover {
+    background: #a53737;
+}
+
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+                url('https://thumbs.dreamstime.com/b/hotel-room-night-city-view-modern-interior-design-inviting-comfy-bed-scenic-offering-relaxing-travel-experience-391039258.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 5%;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: var(--primaria);
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #d14e4e;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    padding: 1rem 2.2rem;
+    border: 2px solid var(--secundaria);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    background: var(--secundaria);
+    color: white;
+}
+
+#sobre {
+  padding: 7rem 5% 6rem;
+  background: var(--clara);
+}
+
+#sobre .container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem 7rem;
+  align-items: start;
+  padding: 50px 100px;
+}
+
+#sobre .texto {
+  max-width: 620px;
+}
+
+#sobre .texto h2 {
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--escuro);
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
+}
+
+#sobre .subtitulo {
+  font-size: 1.45rem;
+  color: var(--secundaria);
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+  line-height: 1.4;
+}
+
+#sobre .texto-columns {
+  column-count: 2;
+  column-gap: 3rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+#sobre .texto-columns p {
+  margin-bottom: 1.4rem;
+  break-inside: avoid;
+}
+
+#sobre .cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem 2rem;
+  max-width: 620px;
+}
+
+#sobre .card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+#sobre .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(191,70,70,0.12);
+}
+
+#sobre .icone {
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  background: var(--primaria);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.9rem;
+  margin: 0 auto 1rem;
+}
+
+#sobre .numero {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--primaria);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+#sobre .label {
+  font-size: 1.05rem;
+  color: #555;
+  font-weight: 500;
+}
+
+#quartos {
+    padding: 6rem 5%;
+    background: var(--bege);
+    text-align: center;
+}
+
+#quartos h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.8rem;
+}
+
+#quartos .subtitulo {
+    font-size: 1.4rem;
+    color: var(--secundaria);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+#quartos .descricao {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#quartos .quartos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#quartos .quarto-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+#quartos .quarto-card:hover {
+    transform: translateY(-8px);
+}
+
+#quartos .quarto-imagem {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+}
+
+#quartos .quarto-conteudo {
+    padding: 1.8rem 1.5rem;
+}
+
+#quartos .quarto-titulo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 0.8rem;
+}
+
+#quartos .quarto-desc {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+}
+
+#quartos .quarto-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+#quartos .detalhe-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#quartos .detalhe-item span {
+    font-weight: 500;
+}
+
+#quartos .preco {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primaria);
+    margin-bottom: 1.2rem;
+}
+
+#quartos .btn-reservar {
+    background: var(--primaria);
+    color: white;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#quartos .btn-reservar:hover {
+    background: #a53737;
+}
+
+footer {
+  background: var(--escuro);
+  color: white;
+  padding: 4rem 5% 2rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem 2rem;
+}
+
+.footer-col h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--secundaria);
+}
+
+.footer-col h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: white;
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: var(--primaria);
+}
+
+.footer-col p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social a {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+}
+
+.social a:hover {
+  background: var(--primaria);
+  transform: translateY(-3px);
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.9rem;
+}
+
+.footer-col a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover {
+  color: var(--secundaria);
+}
+
+.contact-info li {
+  margin-bottom: 1rem;
+  color: #ddd;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 3rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+.footer-bottom p {
+  margin-bottom: 0.8rem;
+}
+
+.legal a {
+  color: #bbb;
+  text-decoration: none;
+  margin: 0 0.8rem;
+}
+
+.legal a:hover {
+  color: white;
+}
+
+/* ==========================================================================
+   Estilos da página de Fazer Reserva
+   ========================================================================== */
+
+.reserva-container {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 2rem 5%;
+    min-height: 100vh;
+}
+
+.reserva-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reserva-header h1 {
+    font-size: 2.5rem;
+    color: var(--primaria);
+    margin-bottom: 0.5rem;
+}
+
+.reserva-header p {
+    font-size: 1.1rem;
+    color: var(--cinza);
+}
+
+.reserva-form-wrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+}
+
+.form-section h2 {
+    font-size: 1.3rem;
+    color: var(--primaria);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--bege);
+}
+
+/* Grid de Quartos */
+.quartos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.quarto-card {
+    border: 2px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quarto-card:hover {
+    border-color: var(--primaria);
+    box-shadow: 0 4px 12px rgba(191, 70, 70, 0.15);
+}
+
+.quarto-card input[type="radio"]:checked + .quarto-info {
+    background: rgba(191, 70, 70, 0.05);
+    border-top: 3px solid var(--primaria);
+}
+
+.quarto-imagem {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+}
+
+.quarto-info {
+    padding: 1.2rem;
+}
+
+.quarto-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--escuro);
+}
+
+.quarto-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+}
+
+.quarto-preco {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primaria);
+    margin-bottom: 1rem;
+}
+
+.quarto-preco span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--primaria);
+}
+
+.radio-option input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primaria);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.radio-option input[type="radio"]:checked {
+    background: var(--primaria);
+    box-shadow: inset 0 0 0 3px white;
+}
+
+/* Datas */
+.datas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.hospedes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.dados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--escuro);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primaria);
+    box-shadow: 0 0 0 3px rgba(191, 70, 70, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+/* Resumo */
+.resumo-section {
+    background: linear-gradient(135deg, rgba(191, 70, 70, 0.05) 0%, rgba(126, 172, 181, 0.05) 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primaria);
+}
+
+.resumo-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.resumo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.resumo-item:last-child {
+    border-bottom: none;
+}
+
+.resumo-item span {
+    color: #666;
+    font-weight: 500;
+}
+
+.resumo-item strong {
+    color: var(--escuro);
+    font-size: 1.1rem;
+}
+
+.resumo-item.resumo-total {
+    grid-column: 1 / -1;
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+    border-bottom: none;
+}
+
+.resumo-item.resumo-total strong {
+    color: var(--primaria);
+    font-size: 1.5rem;
+}
+
+/* Termos, Botões */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.checkbox-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primaria);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-submit {
+    flex: 1;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-secondary {
+    flex: 1;
+    max-width: 300px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    background: #eee;
+    color: var(--escuro);
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+/* ==========================================================================
+   Media Queries Responsivas
+   ========================================================================== */
+
+@media (max-width: 1100px) {
+  #sobre .container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  #sobre .texto-columns {
+    column-count: 1;
+  }
+  
+  #sobre .cards {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.2rem 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .menu {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #sobre {
+      padding: 5rem 6% 4rem;
+    }
+
+    #sobre .container {
+        padding: 30px 20px;
+    }
+    
+    #sobre .texto h2 {
+      font-size: 2.6rem;
+      text-align: center;
+    }
+    
+    #sobre .subtitulo {
+      text-align: center;
+    }
+    
+    #sobre .texto-columns {
+      font-size: 1.05rem;
+    }
+
+    #quartos h2 {
+        font-size: 2.6rem;
+    }
+
+    #quartos .subtitulo {
+        font-size: 1.3rem;
+    }
+
+    #quartos .quarto-imagem {
+        height: 220px;
+    }
+
+    footer {
+        padding: 3rem 5% 2rem;
+    }
+    
+    .footer-container {
+        gap: 2.5rem;
+    }
+
+    .reserva-container {
+        margin-top: 80px;
+    }
+
+    .reserva-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .reserva-form-wrapper {
+        padding: 1.5rem;
+    }
+
+    .quartos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .datas-grid,
+    .hospedes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dados-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+
+    .btn-secondary,
+    .btn-submit {
+        max-width: none;
+    }
+}
