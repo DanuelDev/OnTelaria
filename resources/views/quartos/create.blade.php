@@ -13,14 +13,39 @@
             
             <div class="form-section">
                 <h2>Informações da Acomodação</h2>
-                <div class="dados-grid" style="align-content: center; align-items:center; justify-content:center">
+                <div class="dados-grid">
                 
                     <div class="form-group">
                         <label for="categoria">Categoria</label>
                         <select id="categoria" name="categoria" required>
-                            <option value="padrao">Padrão</option>
-                            <option value="deluxe">Deluxe</option>
-                            <option value="premium">Suíte Premium</option>
+                            <option value="suite">Suite</option>
+                            <option value="luxoduplo">Luxo Duplo</option>
+                            <option value="luxotriplo">Luxo Triplo</option>
+                            <option value="luxocasal">Luxo Casal</option>
+                            <option value="suiteconjugada">Suíte Cojugada</option>
+                            <option value="apartamentomini">Apartamento Mini</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Capacidade e Estrutura</h2>
+                <div class="hospedes-grid">
+                    <div class="form-group">
+                        <label for="max_adultos">Máximo de Adultos</label>
+                        <input type="number" id="max_adultos" name="max_adultos" min="1" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_criancas">Máximo de Crianças</label>
+                        <input type="number" id="max_criancas" name="max_criancas" min="0" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status Inicial</label>
+                        <select id="status" name="status">
+                            <option value="disponivel">Disponível</option>
+                            <option value="manutencao">Em Manutenção</option>
+                            <option value="indisponivel">Indisponível</option>
                         </select>
                     </div>
                 </div>

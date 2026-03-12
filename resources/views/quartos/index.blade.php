@@ -8,11 +8,11 @@
         <div style="margin-bottom: 20px">
             <h2 style="color: var(--escuro); font-weight: 700; font-size: 2.2rem; margin: 0;">Gerenciar Quartos</h2>
             <p style="color: var(--secundaria); margin: 0;">Painel administrativo de controle de inventário</p>
-            @if(session('success'))
-                <div class="alert alert-success" style="margin-top: 15px; padding: 10px 15px; border-radius: 8px; color: var(--primaria); background: var(--success); border: 1px solid var(--primaria);">
+            @if(session('success')){
+                <div class="alert alert-success mt-3" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
                     {{ session('success') }}
                 </div>
-            @endif
+            }
         </div>
         <a href="{{ route('quartos.create') }}" class="btn-primary" style="padding: 0.7rem 1.5rem; font-size: 1rem;">
             <i class="bi bi-plus-lg"></i> Novo Quarto
