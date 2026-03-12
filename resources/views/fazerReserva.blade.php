@@ -15,47 +15,47 @@
             <div class="form-section">
                 <h2>Selecione seu Quarto</h2>
                 <div class="quartos-grid">
-                    <div class="quarto-card">
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="1" required class="card-radio">
                         <div class="quarto-imagem" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                         <div class="quarto-info">
                             <h3>Quarto Padrão</h3>
                             <p class="quarto-desc">Confortável e espaçoso</p>
                             <p class="quarto-preco">R$ 150,00 <span>/noite</span></p>
-                            <label class="radio-option">
-                                <input type="radio" name="quarto_id" value="1" required>
+                            <div class="radio-option">
                                 <span class="radio-custom"></span>
                                 Selecionar
-                            </label>
+                            </div>
                         </div>
-                    </div>
+                    </label>
 
-                    <div class="quarto-card">
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="2" required class="card-radio">
                         <div class="quarto-imagem" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
                         <div class="quarto-info">
                             <h3>Quarto Deluxe</h3>
                             <p class="quarto-desc">Luxuoso com vista panorâmica</p>
                             <p class="quarto-preco">R$ 250,00 <span>/noite</span></p>
-                            <label class="radio-option">
-                                <input type="radio" name="quarto_id" value="2" required>
+                            <div class="radio-option">
                                 <span class="radio-custom"></span>
                                 Selecionar
-                            </label>
+                            </div>
                         </div>
-                    </div>
+                    </label>
 
-                    <div class="quarto-card">
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="3" required class="card-radio">
                         <div class="quarto-imagem" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                         <div class="quarto-info">
                             <h3>Suite Premium</h3>
                             <p class="quarto-desc">Máximo conforto e privacidade</p>
                             <p class="quarto-preco">R$ 400,00 <span>/noite</span></p>
-                            <label class="radio-option">
-                                <input type="radio" name="quarto_id" value="3" required>
+                            <div class="radio-option">
                                 <span class="radio-custom"></span>
                                 Selecionar
-                            </label>
+                            </div>
                         </div>
-                    </div>
+                    </label>
                 </div>
             </div>
 
@@ -274,6 +274,7 @@
         overflow: hidden;
         cursor: pointer;
         transition: all 0.3s ease;
+        position: relative; /* allows absolute radio overlay */
     }
 
     .quarto-card:hover {
@@ -282,6 +283,12 @@
     }
 
     .quarto-card input[type="radio"]:checked + .quarto-info {
+        background: rgba(191, 70, 70, 0.05);
+        border-top: 3px solid var(--primaria);
+    }
+
+    /* when using card-radio overlay structure */
+    .quarto-card .card-radio:checked ~ .quarto-info {
         background: rgba(191, 70, 70, 0.05);
         border-top: 3px solid var(--primaria);
     }
@@ -328,12 +335,13 @@
         cursor: pointer;
         font-weight: 600;
         color: var(--primaria);
+        
     }
 
     .radio-option input[type="radio"] {
         appearance: none;
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
         border: 2px solid var(--primaria);
         border-radius: 50%;
         cursor: pointer;
@@ -343,6 +351,33 @@
     .radio-option input[type="radio"]:checked {
         background: var(--primaria);
         box-shadow: inset 0 0 0 3px white;
+    }
+
+    .card-radio {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .radio-option .radio-custom {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border: 2px solid var(--primaria);
+        border-radius: 50%;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+        transition: background 0.2s;
+    }
+
+    /* fill bullet when corresponding card radio is selected */
+    .quarto-card .card-radio:checked ~ .quarto-info .radio-custom {
+        background: var(--primaria);
     }
 
     /* Datas */

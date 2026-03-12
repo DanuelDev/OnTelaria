@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
   <style>
     /* =============================================
@@ -21,6 +22,7 @@
     --clara: #FFF4EA;
     --escuro: #111;
     --cinza: #333;
+    --success: #4CAF50;
 }
 
 * {
@@ -619,6 +621,7 @@ button:hover {
 
     .social {
       display: flex;
+      color: white;
       gap: 1rem;
       margin-top: 1.5rem;
     }
@@ -700,19 +703,121 @@ button:hover {
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+        <a href="/" class="logo" style="text-decoration: none;">
+            ON<span style="color: var(--secundaria)">TELARIA</span>
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul class="menu">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="{{ route('quartos.index') }}">Quartos</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li>
+                <a href="{{ route('quartos.create') }}" class="btn-reserva">
+                    Nova Reserva
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    /* CSS Complementar para a funcionalidade da Navbar */
+
+    /* Esconde o checkbox */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Estilização do Menu */
+    .menu {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu li {
+        list-style: none;
+    }
+
+    /* Responsividade (Mobile) */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--escuro);
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Escondido fora da tela */
+            width: 70%;
+            height: 100vh;
+            background: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem !important;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: 0.4s ease-in-out;
+            z-index: 15;
+        }
+
+        /* Quando o checkbox estiver marcado, mostra o menu */
+        .menu-toggle:checked ~ .menu {
+            right: 0;
+        }
+
+        /* Efeito de X no hambúrguer quando aberto */
+        .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .btn-reserva {
+            width: 80%;
+            text-align: center;
+        }
+    }
+</style>
     @yield('conteudo')
     
     <footer>
     <div class="footer-container">
       <div class="footer-col">
-        <h3>Grand Hotel</h3>
+        <h3>OnTelaria</h3>
         <p>Experiência de luxo e conforto desde 1985</p>
         
         <div class="social">
-          <a href="#" aria-label="Instagram">📸</a>
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Twitter/X">🐦</a>
-          <a href="#" aria-label="WhatsApp">💬</a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
         </div>
       </div>
 
@@ -730,10 +835,10 @@ button:hover {
       <div class="footer-col">
         <h4>Contato</h4>
         <ul class="contact-info">
-          <li>📍 Av. Principal, 1234 - Centro</li>
-          <li>Presidente Prudente - SP</li>
-          <li>📞 (18) 99999-8888</li>
-          <li>✉️ reservas@grandhotel.com.br</li>
+          <li><i class="bi bi-pin-map-fill"></i> Av. Principal, 1234 - Centro</li>
+          <li><i class="bi bi-geo-alt"></i> Presidente Prudente - SP</li>
+          <li><i class="bi bi-telephone"></i> (18) 99999-8888</li>
+          <li><i class="bi bi-envelope"></i> contato@ontelaria.com.br</li>
         </ul>
       </div>
 
@@ -741,14 +846,14 @@ button:hover {
         <h4>Horário</h4>
         <ul class="contact-info">
           <li>Recepção 24 horas</li>
-          <li>Check-in: 14:00</li>
-          <li>Check-out: 12:00</li>
+          <li>Check-in: 08:00 às 14:00</li>
+          <li>Check-out: 13:00 às 18:00</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Grand Hotel. Todos os direitos reservados.</p>
+      <p>© 2026 OnTelaria. Todos os direitos reservados.</p>
       <div class="legal">
         <a href="#">Política de Privacidade</a> • 
         <a href="#">Termos de Uso</a>

@@ -39,7 +39,8 @@ class QuartosController extends Controller
      */
     public function show($id)
     {
-        //
+        $quarto = Quartos::findOrFail($id);
+        return view('quartos.show', compact('quarto'));
     }
 
     /**
@@ -63,6 +64,7 @@ class QuartosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Quartos::destroy($id);
+        return redirect()->route('quartos.index')->with('success', 'Quarto excluído com sucesso!');
     }
 }

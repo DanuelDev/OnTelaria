@@ -17,15 +17,15 @@
 <section id="sobre">
   <div class="container">
     <div class="texto">
-      <h2>Sobre o Grand Hotel</h2>
+      <h2>Sobre o OnTelaria</h2>
       <div class="subtitulo">Uma experiência de hospedagem excepcional desde 1985</div>
       
       <div class="texto-columns">
-        <p>O Grand Hotel combina elegância clássica com comodidades modernas para proporcionar uma estadia inesquecível. Localizado no coração da cidade, nosso hotel oferece fácil acesso aos principais pontos turísticos, centros comerciais e áreas de negócios.</p>
+        <p>O OnTelaria combina elegância clássica com comodidades modernas para proporcionar uma estadia inesquecível. Localizado no coração da cidade, nosso hotel oferece fácil acesso aos principais pontos turísticos, centros comerciais e áreas de negócios.</p>
         
         <p>Com mais de 35 anos de tradição em hospitalidade, nos dedicamos a oferecer um serviço impecável e criar momentos memoráveis para cada hóspede. Nossas instalações foram cuidadosamente projetadas para seu conforto e bem-estar.</p>
         
-        <p>Seja para uma viagem de negócios, férias em família ou uma escapada romântica, o Grand Hotel é seu refúgio perfeito.</p>
+        <p>Seja para uma viagem de negócios, férias em família ou uma escapada romântica, o OnTelaria é seu refúgio perfeito.</p>
       </div>
     </div>
 
