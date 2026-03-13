@@ -56,6 +56,48 @@
                             </div>
                         </div>
                     </label>
+
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="3" required class="card-radio">
+                        <div class="quarto-imagem" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="quarto-info">
+                            <h3>Suite Premium</h3>
+                            <p class="quarto-desc">Máximo conforto e privacidade</p>
+                            <p class="quarto-preco">R$ 400,00 <span>/noite</span></p>
+                            <div class="radio-option">
+                                <span class="radio-custom"></span>
+                                Selecionar
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="3" required class="card-radio">
+                        <div class="quarto-imagem" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="quarto-info">
+                            <h3>Suite Premium</h3>
+                            <p class="quarto-desc">Máximo conforto e privacidade</p>
+                            <p class="quarto-preco">R$ 400,00 <span>/noite</span></p>
+                            <div class="radio-option">
+                                <span class="radio-custom"></span>
+                                Selecionar
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="quarto-card">
+                        <input type="radio" name="quarto_id" value="3" required class="card-radio">
+                        <div class="quarto-imagem" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="quarto-info">
+                            <h3>Suite Premium</h3>
+                            <p class="quarto-desc">Máximo conforto e privacidade</p>
+                            <p class="quarto-preco">R$ 400,00 <span>/noite</span></p>
+                            <div class="radio-option">
+                                <span class="radio-custom"></span>
+                                Selecionar
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
 

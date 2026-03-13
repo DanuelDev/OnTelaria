@@ -13,6 +13,7 @@
                     {{ session('success') }}
                 </div>
             }
+            @endif
         </div>
         <a href="{{ route('quartos.create') }}" class="btn-primary" style="padding: 0.7rem 1.5rem; font-size: 1rem;">
             <i class="bi bi-plus-lg"></i> Novo Quarto

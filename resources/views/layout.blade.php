@@ -80,7 +80,7 @@ nav {
 
 .btn-reserva {
     background: var(--primaria);
-    color: white;
+    color: white !important;
     padding: 0.6rem 1.4rem;
     border-radius: 6px;
     text-decoration: none;
@@ -705,7 +705,7 @@ button:hover {
 <body>
   <header>
     <nav>
-        <a href="/" class="logo" style="text-decoration: none;">
+        <a href="/index" class="logo" style="text-decoration: none;">
             ON<span style="color: var(--secundaria)">TELARIA</span>
         </a>
 
@@ -722,7 +722,7 @@ button:hover {
             <li><a href="#servicos">Serviços</a></li>
             <li><a href="#contato">Contato</a></li>
             <li>
-                <a href="{{ route('quartos.create') }}" class="btn-reserva">
+                <a href="/fazerReserva" class="btn-reserva">
                     Nova Reserva
                 </a>
             </li>
@@ -835,7 +835,7 @@ button:hover {
       <div class="footer-col">
         <h4>Contato</h4>
         <ul class="contact-info">
-          <li><i class="bi bi-pin-map-fill"></i> Av. Principal, 1234 - Centro</li>
+          <li><i class="bi bi-pin-map-fill"></i> R. Coração Verde, 1234 - Bosque</li>
           <li><i class="bi bi-geo-alt"></i> Presidente Prudente - SP</li>
           <li><i class="bi bi-telephone"></i> (18) 99999-8888</li>
           <li><i class="bi bi-envelope"></i> contato@ontelaria.com.br</li>
@@ -853,7 +853,7 @@ button:hover {
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 OnTelaria. Todos os direitos reservados.</p>
+      <p>© 2026 Daniel Horvath. Todos os direitos reservados.</p>
       <div class="legal">
         <a href="#">Política de Privacidade</a> • 
         <a href="#">Termos de Uso</a>
