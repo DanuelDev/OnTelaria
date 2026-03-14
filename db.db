@@ -43,14 +43,57 @@ CREATE TABLE quartos (
 CREATE TABLE reservas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     hospede_id INT NOT NULL,
+    -- Novos campos de identificação e contato
+    nome_completo VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20),
+    email VARCHAR(100),
+    cpf_passport VARCHAR(50),
+    -- Campo de contagem
+    quantidade_total_pessoas INT DEFAULT 1,
+    -- Campos de período e status
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
     status ENUM('pendente', 'confirmada', 'cancelada', 'concluida') DEFAULT 'pendente',
     valor_total DECIMAL(10,2),
+    -- Observações (já existente)
     observacoes TEXT,
+    -- Restrições
     FOREIGN KEY (hospede_id) REFERENCES hospedes(id) ON DELETE CASCADE,
     CHECK (data_fim > data_inicio)
 );
+
+INSERT INTO reservas (
+    hospede_id, 
+    nome_completo, 
+    telefone, 
+    email, 
+    cpf_passport, 
+    quantidade_total_pessoas, 
+    data_inicio, 
+    data_fim, 
+    status, 
+    valor_total, 
+    observacoes
+) VALUES (
+    1,                                -- hospede_id (ID vindo da tabela hospedes)
+    'Gabriel Souza Silva',            -- nome_completo
+    '+55 11 99999-8888',              -- telefone
+    'gabriel.silva@email.com',        -- email
+    '123.456.789-00',                 -- cpf_passport
+    3,                                -- quantidade_total_pessoas
+    '2026-05-10',                     -- data_inicio (Formato AAAA-MM-DD)
+    '2026-05-15',                     -- data_fim
+    'confirmada',                     -- status
+    1250.00,                          -- valor_total
+    'Hóspede solicitou andar alto e cama extra de solteiro.' -- observacoes
+);
+
+ALTER TABLE reservas 
+    ADD COLUMN nome_completo VARCHAR(255) NOT NULL AFTER hospede_id,
+    ADD COLUMN telefone VARCHAR(20) AFTER nome_completo,
+    ADD COLUMN email VARCHAR(100) AFTER telefone,
+    ADD COLUMN cpf_passport VARCHAR(50) AFTER email,
+    ADD COLUMN quantidade_total_pessoas INT DEFAULT 1 AFTER cpf_passport;
 
 CREATE TABLE estadias (
     id INT PRIMARY KEY AUTO_INCREMENT,

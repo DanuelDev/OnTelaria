@@ -8,7 +8,7 @@
     </div>
 
     <div class="reserva-form-wrapper">
-        <form action="{{ route('quartos.create') }}" method="POST" enctype="multipart/form-data" class="reserva-form">
+        <form action="{{ route('quartos.store') }}" method="POST" enctype="multipart/form-data" class="reserva-form">
             @csrf
             
             <div class="form-section">
@@ -18,6 +18,7 @@
                     <div class="form-group">
                         <label for="categoria">Categoria</label>
                         <select id="categoria" name="categoria" required>
+                            <option value="" disabled selected>Selecione..</option>
                             <option value="suite">Suite</option>
                             <option value="luxoduplo">Luxo Duplo</option>
                             <option value="luxotriplo">Luxo Triplo</option>
@@ -62,8 +63,7 @@
 </div>
 
 <style>
-    /* Reaproveitando seus estilos e adicionando ajustes administrativos */
-    @import url('suas-variaveis-de-cor.css'); /* Certifique-se que as variáveis --primaria, etc, estejam acessíveis */
+    @import url('/public/css/app.css'); /* Certifique-se que as variáveis --primaria, etc, estejam acessíveis */
 
     .reserva-container { max-width: 900px; margin: 50px auto; padding: 2rem 5%; }
     .reserva-form-wrapper { background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 2.5rem; }
@@ -105,5 +105,47 @@
 
     .btn-submit:hover { opacity: 0.9; cursor: pointer; }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Mapeamento das regras por categoria
+    const regrasCategorias = {
+        'suite': { adultos: 2, criancas: 1 },
+        'luxoduplo': { adultos: 2, criancas: 0 },
+        'luxotriplo': { adultos: 3, criancas: 0 },
+        'luxocasal': { adultos: 2, criancas: 0 },
+        'suiteconjugada': { adultos: 4, criancas: 2 },
+        'apartamentomini': { adultos: 1, criancas: 0 }
+    };
+
+    // 2. Seleção dos elementos
+    const selectCategoria = document.getElementById('categoria');
+    const inputAdultos = document.getElementById('max_adultos');
+    const inputCriancas = document.getElementById('max_criancas');
+
+    // 3. Função que atualiza os campos
+    function atualizarCapacidade() {
+        const categoriaSelecionada = selectCategoria.value;
+        const dados = regrasCategorias[categoriaSelecionada];
+
+        if (dados) {
+            inputAdultos.value = dados.adultos;
+            inputCriancas.value = dados.criancas;
+            
+            // Feedback visual opcional: destaca os campos que mudaram
+            [inputAdultos, inputCriancas].forEach(el => {
+                el.style.backgroundColor = '#fff9c4'; // Amarelo claro
+                setTimeout(() => el.style.backgroundColor = '', 500);
+            });
+        }
+    }
+
+    // 4. Escuta a mudança no Select
+    selectCategoria.addEventListener('change', atualizarCapacidade);
+    
+    // Executa uma vez ao carregar caso já venha algo selecionado
+    atualizarCapacidade();
+});
+</script>
 
 @endsection

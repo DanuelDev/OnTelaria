@@ -32,6 +32,30 @@ class QuartosController extends Controller
     public function store(Request $request)
     {
         //
+        $precosPorCategoria = [
+            'suite' => 350.00,
+            'luxoduplo' => 250.00,
+            'luxotriplo' => 300.00,
+            'luxocasal' => 280.00,
+            'suiteconjugada' => 500.00,
+            'apartamentomini' => 150.00,
+        ];
+
+        $precoDiaria = $precosPorCategoria[$request->categoria];
+
+        $quarto = new Quartos();
+
+        $quarto->tipo = $request->categoria;
+        $quarto->status = $request->status;
+        $quarto->preco_diaria = $precoDiaria;
+
+        $quarto->capacidade = $request->max_adultos + $request->max_criancas;
+
+        $quarto->numero = 'Q-' . rand(100, 999);
+
+        $quarto->save();
+
+        return redirect()->route('quartos.index')->with('success', 'Quarto cadastrado com sucesso!');
     }
 
     /**
