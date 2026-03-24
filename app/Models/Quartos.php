@@ -8,4 +8,7 @@ class Quartos extends Model
 {
     //
     public $timestamps = false;
+    protected $fillable = [
+        'numero',
+    ];
 }

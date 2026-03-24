@@ -700,6 +700,156 @@ button:hover {
         gap: 2.5rem;
       }
     }
+
+    .btn-voltar {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--secundaria);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    .btn-voltar:hover { color: var(--primaria); }
+
+    .form-card {
+        background: white;
+        border-radius: 12px;
+        border: 2px solid var(--primaria);
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-grupo {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1;
+    }
+
+    .form-linha {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .label-admin {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #999;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+    }
+
+    .input-admin {
+        width: 100%;
+        padding: 0.65rem 0.9rem;
+        border: 1.5px solid var(--bege);
+        border-radius: 8px;
+        font-size: 0.95rem;
+        color: var(--escuro);
+        background: white;
+        transition: border-color 0.2s;
+        font-family: inherit;
+    }
+    .input-admin:focus {
+        outline: none;
+        border-color: var(--primaria);
+    }
+    .input-admin.is-invalid { border-color: #e74c3c; }
+
+    textarea.input-admin { resize: vertical; }
+
+    .erro-msg {
+        font-size: 0.8rem;
+        color: #e74c3c;
+    }
+
+    .form-acoes {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .btn-salvar {
+        background: var(--primaria);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.7rem 1.8rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .btn-salvar:hover { background: #6b3410; color: white; }
+
+    .btn-cancelar {
+        color: var(--secundaria);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        transition: background 0.2s;
+    }
+    .btn-cancelar:hover { background: var(--clara); }
+
+    .btn-excluir-show {
+        background: white;
+        color: #c62828;
+        border: 1.5px solid #ef9a9a;
+        border-radius: 8px;
+        padding: 0.7rem 1.4rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+    }
+    .btn-excluir-show:hover { background: #fdecea; }
+
+    .btn-primary {
+        background: var(--primaria);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #6b3410; color: white; }
+
+    .show-linha {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+    .show-grupo { display: flex; flex-direction: column; }
+    .show-seta  { display: flex; align-items: flex-end; padding-bottom: 4px; }
+    .show-valor {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--escuro);
+        margin: 0.3rem 0 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
   </style>
 </head>
 <body>

@@ -70,17 +70,28 @@ class QuartosController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Quartos $quartos)
+    public function edit($id)
     {
         //
+        $quarto = Quartos::findOrFail($id);
+        return view('quartos.edit', compact('quarto'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
         //
+        try{
+            $quartos = Quartos::findOrFail($id);
+            $quartos->update($request->all());
+        } catch(Exception $e){
+            Log::error('Erro ao alterar quarto: ' . $e->getMessage(), [
+                'stack' => $e->getTraceAsString()
+            ]);
+        }
+        return redirect()->route('quartos.index');
     }
 
     /**

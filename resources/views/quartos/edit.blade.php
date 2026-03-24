@@ -1,3 +1,7 @@
+@extends('layout')
+
+@section('conteudo')
+    
 <h1>Editar Quarto</h1>
 
 <form action="{{ route('quartos.update', $quarto->id) }}" method="POST">
@@ -9,3 +13,4 @@
 
     <button type="submit">Atualizar</button>
 </form>
+@endsection
