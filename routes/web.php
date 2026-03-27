@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuartosController;
 use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\EstadiasController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -17,3 +18,5 @@ Route::get('/index', fn() => view('index'));
 Route::resource('quartos', QuartosController::class);
 
 Route::resource('reservas', ReservasController::class);
+
+Route::resource('estadias', EstadiasController::class);

@@ -867,10 +867,9 @@ button:hover {
         </label>
 
         <ul class="menu">
-            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#}">Clientes</a></li>
             <li><a href="{{ route('quartos.index') }}">Quartos</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="{{ route('estadias.index') }}">Estadias</a></li>
             <li>
                 <a href="{{ route('reservas.index') }}" class="btn-reserva">
                     Nova Reserva

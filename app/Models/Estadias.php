@@ -10,12 +10,17 @@ class Estadias extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'hospede_id', 'nome_completo', 'data_inicio', 'data_fim',
-        'status', 'valor_total', 'observacoes'
+        'reserva_id', 'quarto_id', 'data_checkin', 'data_checkout',
+         'status', 'valor_estadia', 'observacoes'
     ];
 
-    public function estadia()
+    public function quarto()
     {
-        return $this->belongsTo(Hospede::class, 'hospede_id');
+        return $this->belongsTo(Quartos::class, 'quarto_id');
+    }
+
+    public function reserva()
+    {
+        return $this->belongsTo(Reservas::class, 'reserva_id');
     }
 }
