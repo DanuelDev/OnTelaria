@@ -26,7 +26,10 @@ class ReservasController extends Controller
 {
     $reserva = new Reservas();
 
+    $hospede = Hospede::findOrFail($request->hospede_id);
+
     $reserva->hospede_id  = $request->hospede_id;
+    $reserva->nome_completo = $hospede->nome;
     $reserva->data_inicio = $request->data_inicio;
     $reserva->data_fim    = $request->data_fim;
     $reserva->status      = $request->status;
@@ -56,7 +59,10 @@ class ReservasController extends Controller
         try {
             $reserva = Reservas::findOrFail($id);
 
+            $hospede = Hospede::findOrFail($request->hospede_id);
+
             $reserva->hospede_id  = $request->hospede_id;
+            $reserva->hospede_nome = $hospede->nome;
             $reserva->data_inicio = $request->data_inicio;
             $reserva->data_fim    = $request->data_fim;
             $reserva->status      = $request->status;

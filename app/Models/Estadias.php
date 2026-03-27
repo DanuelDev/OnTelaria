@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Reservas extends Model
+class Estadias extends Model
 {
     //
     public $timestamps = false;
@@ -14,7 +14,7 @@ class Reservas extends Model
         'status', 'valor_total', 'observacoes'
     ];
 
-    public function hospede()
+    public function estadia()
     {
         return $this->belongsTo(Hospede::class, 'hospede_id');
     }

@@ -33,7 +33,7 @@
                 <select name="hospede_id" id="hospede_id" class="input-admin @error('hospede_id') is-invalid @enderror" required>
                     <option value="">Selecione um hóspede...</option>
                     @foreach($hospedes as $hospede)
-                        <option value="{{ $hospede->id }}" {{ old('hospede_id', $reserva->hospede_id) == $hospede->id ? 'selected' : '' }}>
+                        <option value="{{ $hospede->id }}">
                             {{ $hospede->nome }}
                         </option>
                     @endforeach
@@ -108,5 +108,11 @@
 
     </form>
 </div>
+<script>
+    document.getElementById('hospede_id').addEventListener('change', function() {
+    document.getElementById('hospede_nome').value = 
+        this.options[this.selectedIndex].dataset.nome;
+});
+</script>
 
 @endsection
