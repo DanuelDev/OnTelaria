@@ -180,7 +180,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"
-                                                style="width: 32px; height: 32px; border-radius: 8px; background: #f5f5f5; color: #555; border: none; cursor: pointer; font-size: 0.9rem; transition: all 0.2s;"
+                                                style="margin: 0; width: 32px; height: 32px; border-radius: 8px; background: #f5f5f5; color: #555; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.9rem; transition: all 0.2s;"
                                                 title="Excluir"
                                                 onmouseover="this.style.background='#fef2f2';this.style.color='#ef4444'"
                                                 onmouseout="this.style.background='#f5f5f5';this.style.color='#555'">

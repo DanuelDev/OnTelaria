@@ -82,7 +82,7 @@
                 <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn-admin btn-excluir"
+                    <button type="submit" class="btn-admin btn-excluir" style="margin: 0; padding: 8px 10px;"
                             onclick="return confirm('Tem certeza que deseja excluir esta reserva?')" title="Excluir">
                         <i class="bi bi-trash" style="font-size: 22px;"></i>
                     </button>
@@ -101,118 +101,7 @@
 </div>
 
 <style>
-    .reserva-admin-card {
-        margin: 15px 0;
-        background: white;
-        border-radius: 12px;
-        border: 2px solid var(--primaria);
-        transition: transform 0.3s ease;
-        overflow: hidden;
-    }
-
-    .reserva-admin-card:hover { transform: translateY(-2px); }
-
-    .card-body-admin {
-        padding: 1.5rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-    }
-
-    .reserva-info {
-        display: flex;
-        gap: 2.5rem;
-        flex-wrap: wrap;
-        align-items: flex-start;
-    }
-
-    .label-admin {
-        display: block;
-        font-size: 0.68rem;
-        font-weight: 700;
-        color: #999;
-        letter-spacing: 1px;
-        margin-bottom: 4px;
-    }
-
-    .reserva-id strong {
-        font-size: 1.3rem;
-        color: var(--escuro);
-    }
-
-    .nome-hospede {
-        display: block;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--escuro);
-    }
-
-    .nome-quarto {
-        display: block;
-        font-size: 0.85rem;
-        color: var(--secundaria);
-        font-weight: 500;
-    }
-
-    .valor-data {
-        font-size: 0.95rem;
-        font-weight: 600;
-        color: var(--escuro);
-    }
-
-    .valor-admin {
-        color: var(--primaria);
-        font-weight: 700;
-        font-size: 1.2rem;
-    }
-
-    .badge-status {
-        padding: 4px 14px;
-        border-radius: 20px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        border: 1px solid;
-        display: inline-block;
-    }
-
-    .reserva-acoes {
-        display: flex;
-        gap: 0.8rem;
-        align-items: center;
-    }
-
-    .btn-admin {
-        text-decoration: none;
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.2s;
-        border: 1px solid transparent;
-        cursor: pointer;
-        background: white;
-    }
-
-    .btn-ver     { color: var(--secundaria); border-color: var(--secundaria); }
-    .btn-ver:hover { background: var(--secundaria); color: white; }
-
-    .btn-editar  { color: #e67e22; border-color: #e67e22; }
-    .btn-editar:hover { background: #e67e22; color: white; }
-
-    .btn-excluir { color: var(--primaria); padding: 8px 10px; }
-    .btn-excluir:hover { color: #5a0f0f; }
-
-    @media (max-width: 768px) {
-        .reserva-info { gap: 1.5rem; }
-        .reserva-acoes { width: 100%; justify-content: space-between; }
-        .btn-admin span { display: none; }
-        .btn-admin { padding: 10px 20px; flex: 1; justify-content: center; }
-    }
+    
 </style>
 
 @endsection+

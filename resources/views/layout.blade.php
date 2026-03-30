@@ -10,12 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-  <style>
-    /* =============================================
-   Parte 1: Estilos gerais do site (header, hero, sobre, quartos)
-   ============================================= */
-
-:root {
+  <style>:root {
     --primaria: #BF4646;
     --secundaria: #7EACB5;
     --bege: #EDDCC6;
@@ -37,6 +32,8 @@ body {
     color: var(--escuro);
     line-height: 1.5;
 }
+
+/* ====================== HEADER ====================== */
 
 header {
     position: fixed;
@@ -90,6 +87,8 @@ nav {
 .btn-reserva:hover {
     background: #a53737;
 }
+
+/* ====================== HERO ====================== */
 
 .hero {
     height: 100vh;
@@ -158,147 +157,104 @@ nav {
     color: white;
 }
 
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.8rem; }
-    .hero p { font-size: 1.2rem; }
-    .menu { gap: 1.2rem; font-size: 0.95rem; }
-    .hero-buttons { flex-direction: column; gap: 1rem; }
-    nav { flex-direction: column; gap: 1rem; padding: 1.2rem 5%; }
-}
+/* ====================== SOBRE ====================== */
+
 #sobre {
-  padding: 7rem 5% 6rem;
-  background: var(--clara);
+    padding: 7rem 5% 6rem;
+    background: var(--clara);
 }
 
 #sobre .container {
-  max-width: 1300px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;           /* duas colunas principais */
-  gap: 5rem 7rem;
-  align-items: start;                       /* alinha no topo */
-  padding: 50px 100px;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem 7rem;
+    align-items: start;
+    padding: 50px 100px;
 }
 
 #sobre .texto {
-  max-width: 620px;
+    max-width: 620px;
 }
 
 #sobre .texto h2 {
-  font-size: clamp(2.8rem, 5vw, 3.8rem);
-  font-weight: 800;
-  color: var(--escuro);
-  margin-bottom: 0.8rem;
-  line-height: 1.1;
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--escuro);
+    margin-bottom: 0.8rem;
+    line-height: 1.1;
 }
 
 #sobre .subtitulo {
-  font-size: 1.45rem;
-  color: var(--secundaria);
-  font-weight: 500;
-  margin-bottom: 1.8rem;
-  line-height: 1.4;
+    font-size: 1.45rem;
+    color: var(--secundaria);
+    font-weight: 500;
+    margin-bottom: 1.8rem;
+    line-height: 1.4;
 }
 
 #sobre .texto-columns {
-  column-count: 2;                          /* divide o texto em 2 colunas */
-  column-gap: 3rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #444;
+    column-count: 2;
+    column-gap: 3rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
 }
 
 #sobre .texto-columns p {
-  margin-bottom: 1.4rem;
-  break-inside: avoid;                      /* evita quebrar parágrafo no meio */
+    margin-bottom: 1.4rem;
+    break-inside: avoid;
 }
 
-/* Cards */
+/* Cards - Sobre */
 #sobre .cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.8rem 2rem;
-  max-width: 620px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem 2rem;
+    max-width: 620px;
 }
 
 #sobre .card {
-  background: white;
-  border-radius: 14px;
-  padding: 1.8rem 1.4rem;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  transition: all 0.3s ease;
+    background: white;
+    border-radius: 14px;
+    padding: 1.8rem 1.4rem;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
 }
 
 #sobre .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(191,70,70,0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(191,70,70,0.12);
 }
 
 #sobre .icone {
-  width: 64px;
-  height: 64px;
-  line-height: 64px;
-  background: var(--primaria);
-  color: white;
-  border-radius: 50%;
-  font-size: 1.9rem;
-  margin: 0 auto 1rem;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    background: var(--primaria);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.9rem;
+    margin: 0 auto 1rem;
 }
 
 #sobre .numero {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--primaria);
-  line-height: 1;
-  margin-bottom: 0.4rem;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primaria);
+    line-height: 1;
+    margin-bottom: 0.4rem;
 }
 
 #sobre .label {
-  font-size: 1.05rem;
-  color: #555;
-  font-weight: 500;
-}
-
-/* Responsividade */
-@media (max-width: 1100px) {
-  #sobre .container {
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-  
-  #sobre .texto-columns {
-    column-count: 1;                        /* volta para 1 coluna */
-  }
-  
-  #sobre .cards {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  #sobre {
-    padding: 5rem 6% 4rem;
-  }
-
-  #sobre .container {
-      padding: 30px 20px;
-  }
-  
-  #sobre .texto h2 {
-    font-size: 2.6rem;
-    text-align: center;
-  }
-  
-  #sobre .subtitulo {
-    text-align: center;
-  }
-  
-  #sobre .texto-columns {
     font-size: 1.05rem;
-  }
+    color: #555;
+    font-weight: 500;
 }
+
+/* ====================== QUARTOS ====================== */
 
 #quartos {
     padding: 6rem 5%;
@@ -387,10 +343,6 @@ nav {
     gap: 0.5rem;
 }
 
-#quartos .detalhe-item span {
-    font-weight: 500;
-}
-
 #quartos .preco {
     font-size: 1.8rem;
     font-weight: bold;
@@ -416,15 +368,7 @@ nav {
     background: #a53737;
 }
 
-@media (max-width: 768px) {
-    #quartos h2 { font-size: 2.6rem; }
-    #quartos .subtitulo { font-size: 1.3rem; }
-    #quartos .quarto-imagem { height: 220px; }
-}
-
-/* =============================================
-   Parte 2: Estilos da página de login/cadastro
-   ============================================= */
+/* ====================== LOGIN / CADASTRO ====================== */
 
 .container {
     background: var(--bege);
@@ -503,10 +447,6 @@ input:focus {
     box-shadow: 0 0 0 3px rgba(191, 70, 70, 0.15);
 }
 
-.password-group {
-    position: relative;
-}
-
 .toggle-password {
     position: absolute;
     right: 14px;
@@ -557,299 +497,427 @@ button:hover {
     text-decoration: underline;
 }
 
-.hidden {
-    display: none;
+/* ====================== FOOTER ====================== */
+
+footer {
+    background: var(--escuro);
+    color: white;
+    padding: 4rem 5% 2rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 3rem 2rem;
+}
+
+.footer-col h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--secundaria);
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: white;
+    position: relative;
+    padding-bottom: 0.6rem;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primaria);
+}
+
+.footer-col p {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social a {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+}
+
+.social a:hover {
+    background: var(--primaria);
+    transform: translateY(-3px);
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.9rem;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: var(--secundaria);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+.legal a {
+    color: #bbb;
+    text-decoration: none;
+    margin: 0 0.8rem;
+}
+
+.legal a:hover {
+    color: white;
+}
+
+/* ====================== ESTILOS ADMIN ====================== */
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secundaria);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-voltar:hover { 
+    color: var(--primaria); 
+}
+
+.form-card {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid var(--primaria);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.form-linha {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.label-admin {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.input-admin {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid var(--bege);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--escuro);
+    background: white;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.input-admin:focus {
+    outline: none;
+    border-color: var(--primaria);
+}
+
+.input-admin.is-invalid { 
+    border-color: #e74c3c; 
+}
+
+.erro-msg {
+    font-size: 0.8rem;
+    color: #e74c3c;
+}
+
+.form-acoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-salvar {
+    background: var(--primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-salvar:hover { 
+    background: #a53737; 
+}
+
+.btn-cancelar {
+    color: var(--secundaria);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-cancelar:hover { 
+    background: var(--clara); 
+}
+
+.btn-excluir-show {
+    background: white;
+    color: #c62828;
+    border: 1.5px solid #ef9a9a;
+    border-radius: 8px;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-excluir-show:hover { 
+    background: #fdecea; 
+}
+
+.btn-primary {
+    background: var(--primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover { 
+    background: #a53737; 
+}
+
+/* Cards de Reservas Admin */
+.reserva-admin-card {
+    margin: 15px 0;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid var(--primaria);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.reserva-admin-card:hover { 
+    transform: translateY(-2px); 
+}
+
+.card-body-admin {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.reserva-info {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.nome-hospede {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--escuro);
+}
+
+.nome-quarto {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--secundaria);
+    font-weight: 500;
+}
+
+.valor-admin {
+    color: var(--primaria);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.badge-status {
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid;
+    display: inline-block;
+}
+
+.reserva-acoes {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.btn-admin {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    cursor: pointer;
+    background: white;
+}
+
+.btn-ver     { color: var(--secundaria); border-color: var(--secundaria); }
+.btn-ver:hover { background: var(--secundaria); color: white; }
+
+.btn-editar  { color: #e67e22; border-color: #e67e22; }
+.btn-editar:hover { background: #e67e22; color: white; }
+
+.btn-excluir { color: var(--primaria); padding: 8px 10px; }
+.btn-excluir:hover { color: #5a0f0f; }
+
+/* ====================== RESPONSIVIDADE ====================== */
+
+@media (max-width: 1100px) {
+    #sobre .container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        padding: 40px 60px;
+    }
+    
+    #sobre .texto-columns {
+        column-count: 1;
+    }
+    
+    #sobre .cards {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1.2rem; }
+    .menu { gap: 1.2rem; font-size: 0.95rem; }
+    .hero-buttons { flex-direction: column; gap: 1rem; }
+    nav { flex-direction: column; gap: 1rem; padding: 1.2rem 5%; }
+
+    #sobre {
+        padding: 5rem 6% 4rem;
+    }
+
+    #sobre .container {
+        padding: 30px 20px;
+    }
+    
+    #sobre .texto h2 {
+        font-size: 2.6rem;
+        text-align: center;
+    }
+    
+    #sobre .subtitulo,
+    #sobre .texto-columns {
+        text-align: center;
+    }
+
+    #quartos h2 { font-size: 2.6rem; }
+    #quartos .subtitulo { font-size: 1.3rem; }
+    #quartos .quarto-imagem { height: 220px; }
+
+    footer {
+        padding: 3rem 5% 2rem;
+    }
+    
+    .footer-container {
+        gap: 2.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .container {
-      margin: 40px 15px;
-      padding: 0 10px;
+        margin: 40px 15px;
+        padding: 0 10px;
     }
     .form-container {
-      padding: 2rem 1.4rem;
+        padding: 2rem 1.4rem;
     }
 }
 
-    /* =============================================
-       Footer Styles
-       ============================================= */
-
-    footer {
-      background: var(--escuro);
-      color: white;
-      padding: 4rem 5% 2rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 3rem 2rem;
-    }
-
-    .footer-col h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: var(--secundaria);
-    }
-
-    .footer-col h4 {
-      font-size: 1.2rem;
-      margin-bottom: 1.2rem;
-      color: white;
-      position: relative;
-      padding-bottom: 0.6rem;
-    }
-
-    .footer-col h4::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background: var(--primaria);
-    }
-
-    .footer-col p {
-      color: #ccc;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .social {
-      display: flex;
-      color: white;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .social a {
-      width: 36px;
-      height: 36px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.3rem;
-      transition: all 0.3s;
-    }
-
-    .social a:hover {
-      background: var(--primaria);
-      transform: translateY(-3px);
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 0.9rem;
-    }
-
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-col a:hover {
-      color: var(--secundaria);
-    }
-
-    .contact-info li {
-      margin-bottom: 1rem;
-      color: #ddd;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 3rem auto 0;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      text-align: center;
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-
-    .footer-bottom p {
-      margin-bottom: 0.8rem;
-    }
-
-    .legal a {
-      color: #bbb;
-      text-decoration: none;
-      margin: 0 0.8rem;
-    }
-
-    .legal a:hover {
-      color: white;
-    }
-
-    @media (max-width: 768px) {
-      footer {
-        padding: 3rem 5% 2rem;
-      }
-      
-      .footer-container {
-        gap: 2.5rem;
-      }
-    }
-
-    .btn-voltar {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--secundaria);
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-    .btn-voltar:hover { color: var(--primaria); }
-
-    .form-card {
-        background: white;
-        border-radius: 12px;
-        border: 2px solid var(--primaria);
-        padding: 2rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .form-grupo {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        flex: 1;
-    }
-
-    .form-linha {
-        display: flex;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-
-    .label-admin {
-        display: block;
-        font-size: 0.68rem;
-        font-weight: 700;
-        color: #999;
-        letter-spacing: 1px;
-        margin-bottom: 2px;
-    }
-
-    .input-admin {
-        width: 100%;
-        padding: 0.65rem 0.9rem;
-        border: 1.5px solid var(--bege);
-        border-radius: 8px;
-        font-size: 0.95rem;
-        color: var(--escuro);
-        background: white;
-        transition: border-color 0.2s;
-        font-family: inherit;
-    }
-    .input-admin:focus {
-        outline: none;
-        border-color: var(--primaria);
-    }
-    .input-admin.is-invalid { border-color: #e74c3c; }
-
-    textarea.input-admin { resize: vertical; }
-
-    .erro-msg {
-        font-size: 0.8rem;
-        color: #e74c3c;
-    }
-
-    .form-acoes {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .btn-salvar {
-        background: var(--primaria);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 0.7rem 1.8rem;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        transition: background 0.2s;
-    }
-    .btn-salvar:hover { background: #6b3410; color: white; }
-
-    .btn-cancelar {
-        color: var(--secundaria);
-        font-size: 0.95rem;
-        font-weight: 600;
-        text-decoration: none;
-        padding: 0.7rem 1rem;
-        border-radius: 8px;
-        transition: background 0.2s;
-    }
-    .btn-cancelar:hover { background: var(--clara); }
-
-    .btn-excluir-show {
-        background: white;
-        color: #c62828;
-        border: 1.5px solid #ef9a9a;
-        border-radius: 8px;
-        padding: 0.7rem 1.4rem;
-        font-size: 0.95rem;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        transition: all 0.2s;
-    }
-    .btn-excluir-show:hover { background: #fdecea; }
-
-    .btn-primary {
-        background: var(--primaria);
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        transition: background 0.2s;
-    }
-    .btn-primary:hover { background: #6b3410; color: white; }
-
-    .show-linha {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-    }
-    .show-grupo { display: flex; flex-direction: column; }
-    .show-seta  { display: flex; align-items: flex-end; padding-bottom: 4px; }
-    .show-valor {
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: var(--escuro);
-        margin: 0.3rem 0 0;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
+@media (max-width: 768px) {
+    .reserva-info { gap: 1.5rem; }
+    .reserva-acoes { width: 100%; justify-content: space-between; }
+    .btn-admin span { display: none; }
+    .btn-admin { padding: 10px 20px; flex: 1; justify-content: center; }
+}
   </style>
 </head>
 <body>

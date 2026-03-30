@@ -10,5 +10,10 @@ class Quartos extends Model
     public $timestamps = false;
     protected $fillable = [
         'numero',
+        'descricao',
+        'tipo',
+        'preco_diaria',
+        'capacidade',
+        'status',
     ];
 }
