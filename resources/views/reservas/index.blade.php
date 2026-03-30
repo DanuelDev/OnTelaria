@@ -62,6 +62,17 @@
             </div>
 
             <div class="reserva-acoes">
+                <form action="{{ route('estadias.confirmar', $reserva->id) }}" method="POST" class="d-inline">
+                    @csrf
+                    <button type="submit"
+                            class="btn-admin btn-confirmar"
+                            onclick="return confirm('Deseja confirmar a estadia para a Reserva #{{ $reserva->id }}?')"
+                            title="Confirmar Estadia"
+                            @if($reserva->status === 'cancelada' || $reserva->estadias()->exists()) disabled @endif>
+                        <i class="bi bi-house-check"></i> <span>Confirmar</span>
+                    </button>
+                </form>
+ 
                 <a href="{{ route('reservas.show', $reserva->id) }}" class="btn-admin btn-ver" title="Visualizar">
                     <i class="bi bi-eye"></i> <span>Ver</span>
                 </a>

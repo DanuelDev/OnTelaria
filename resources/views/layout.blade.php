@@ -954,6 +954,17 @@ button:hover {
             width: 80%;
             text-align: center;
         }
+
+        .btn-confirmar { color: #16a34a; border-color: #16a34a; }
+
+        .btn-confirmar:hover { background: #16a34a; color: white; }
+        
+        .btn-confirmar:disabled {
+            color: #bbb;
+            border-color: #e5e5e5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     }
 </style>
     @yield('conteudo')

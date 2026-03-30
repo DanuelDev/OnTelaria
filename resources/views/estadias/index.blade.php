@@ -141,10 +141,9 @@
                             <td style="padding: 1rem 1.2rem;">
                                 @php
                                     $statusConfig = [
-                                        'em_andamento' => ['bg' => '#eff6ff', 'color' => '#3b82f6', 'label' => 'Em Andamento'],
-                                        'concluida'    => ['bg' => '#f0fdf4', 'color' => '#22c55e', 'label' => 'Concluída'],
-                                        'cancelada'    => ['bg' => '#fef2f2', 'color' => '#ef4444', 'label' => 'Cancelada'],
-                                        'pendente'     => ['bg' => '#fffbeb', 'color' => '#f59e0b', 'label' => 'Pendente'],
+                                        'ativa'     => ['bg' => '#eff6ff', 'color' => '#3b82f6', 'label' => 'Ativa'],
+                                        'concluida' => ['bg' => '#f0fdf4', 'color' => '#22c55e', 'label' => 'Concluída'],
+                                        'cancelada' => ['bg' => '#fef2f2', 'color' => '#ef4444', 'label' => 'Cancelada'],
                                     ];
                                     $cfg = $statusConfig[$estadia->status] ?? ['bg' => '#f5f5f5', 'color' => '#888', 'label' => ucfirst($estadia->status)];
                                 @endphp

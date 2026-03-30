@@ -20,3 +20,8 @@ Route::resource('quartos', QuartosController::class);
 Route::resource('reservas', ReservasController::class);
 
 Route::resource('estadias', EstadiasController::class);
+
+Route::post('estadias/confirmar/{reserva}', [EstadiasController::class, 'confirmar'])
+    ->name('estadias.confirmar');
+ 
+Route::resource('estadias', EstadiasController::class);

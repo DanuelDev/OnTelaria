@@ -69,6 +69,7 @@ class ReservasController extends Controller
             $reserva->valor_total = $request->valor_total;
             $reserva->observacoes = $request->observacoes;
 
+            $reserva->status = 'confirmada';
             $reserva->save();
 
         } catch (Exception $e) {
