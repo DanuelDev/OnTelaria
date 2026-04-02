@@ -16,11 +16,11 @@ class Reservas extends Model
 
     public function hospede()
     {
-        return $this->belongsTo(Hospede::class, 'hospede_id'); // <-- Hospede, não Clientes
+        return $this->belongsTo(Hospede::class, 'hospede_id');
     }
 
     public function estadias()
     {
-        return $this->hasMany(Estadias::class, 'reserva_id');
+        return $this->hasOne(Estadias::class, 'reserva_id');
     }
 }

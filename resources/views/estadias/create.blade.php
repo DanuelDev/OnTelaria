@@ -40,7 +40,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem;">
 
                 {{-- Reserva --}}
-                <div style="grid-column: 1 / -1;">
+                <div style="grid-column: 1 / -1;" hidden>
                     <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
                         Reserva <span style="color: var(--primaria);">*</span>
                     </label>
@@ -93,26 +93,17 @@
                            style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 9px; border: 1.5px solid {{ $errors->has('data_checkout') ? '#fca5a5' : '#e5e7eb' }}; font-size: 0.92rem; color: var(--escuro); outline: none; box-sizing: border-box;">
                 </div>
 
-                {{-- Status — padrão "em_andamento" quando vindo de uma reserva --}}
-                <div>
+                {{-- Status --}}
+                <div hidden>
                     <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
                         Status <span style="color: var(--primaria);">*</span>
                     </label>
                     <select name="status" required style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 9px; border: 1.5px solid {{ $errors->has('status') ? '#fca5a5' : '#e5e7eb' }}; font-size: 0.92rem; color: var(--escuro); background: white; outline: none; cursor: pointer;">
                         <option value="">Selecione...</option>
                         <option value="ativa"      {{ old('status', request('status', 'ativa')) == 'ativa'      ? 'selected' : '' }}>Ativa</option>
-<option value="concluida"  {{ old('status', request('status')) == 'concluida'            ? 'selected' : '' }}>Concluída</option>
-<option value="cancelada"  {{ old('status', request('status')) == 'cancelada'            ? 'selected' : '' }}>Cancelada</option>
+                        <option value="concluida"  {{ old('status', request('status')) == 'concluida'            ? 'selected' : '' }}>Concluída</option>
+                        <option value="cancelada"  {{ old('status', request('status')) == 'cancelada'            ? 'selected' : '' }}>Cancelada</option>
                     </select>
-                </div>
-
-                {{-- Valor --}}
-                <div>
-                    <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">
-                        Valor da Estadia (R$) <span style="color: var(--primaria);">*</span>
-                    </label>
-                    <input type="number" name="valor_estadia" value="{{ old('valor_estadia', request('valor_estadia')) }}" required min="0" step="0.01" placeholder="0,00"
-                           style="width: 100%; padding: 0.65rem 0.9rem; border-radius: 9px; border: 1.5px solid {{ $errors->has('valor_estadia') ? '#fca5a5' : '#e5e7eb' }}; font-size: 0.92rem; color: var(--escuro); outline: none; box-sizing: border-box;">
                 </div>
 
                 {{-- Observações --}}

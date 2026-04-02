@@ -42,7 +42,7 @@
             </div>
             <div>
                 <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; color: #999; text-transform: uppercase; margin: 0;">Em Andamento</p>
-                <p style="font-size: 1.8rem; font-weight: 800; color: var(--escuro); margin: 0; line-height: 1;">{{ $estadias->where('status', 'em_andamento')->count() }}</p>
+                <p style="font-size: 1.8rem; font-weight: 800; color: var(--escuro); margin: 0; line-height: 1;">{{ $estadias->where('status', 'ativa')->count() }}</p>
             </div>
         </div>
         <div style="background: white; border-radius: 12px; padding: 1.2rem 1.4rem; border: 1.5px solid #eee; display: flex; align-items: center; gap: 1rem;">
@@ -73,7 +73,7 @@
             <p style="font-size: 0.8rem; color: #999; margin: 0;">{{ $estadias->count() }} estadia(s) encontrada(s)</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <a href="{{ route('estadias.index') }}" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 20px; text-decoration: none; font-weight: 600; background: var(--primaria); color: white;">Todas</a>
-                <a href="{{ route('estadias.index', ['status' => 'em_andamento']) }}" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 20px; text-decoration: none; font-weight: 600; background: #eff6ff; color: #3b82f6;">Em Andamento</a>
+                <a href="{{ route('estadias.index', ['status' => 'ativa']) }}" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 20px; text-decoration: none; font-weight: 600; background: #eff6ff; color: #3b82f6;">Em Andamento</a>
                 <a href="{{ route('estadias.index', ['status' => 'concluida']) }}" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 20px; text-decoration: none; font-weight: 600; background: #f0fdf4; color: #22c55e;">Concluídas</a>
                 <a href="{{ route('estadias.index', ['status' => 'cancelada']) }}" style="font-size: 0.8rem; padding: 0.4rem 0.9rem; border-radius: 20px; text-decoration: none; font-weight: 600; background: #fef2f2; color: #ef4444;">Canceladas</a>
             </div>

@@ -63,30 +63,6 @@
                 </div>
             </div>
 
-            <div class="form-linha">
-                <div class="form-grupo">
-                    <label class="label-admin" for="status">STATUS</label>
-                    <select name="status" id="status" class="input-admin @error('status') is-invalid @enderror" required>
-                        <option value="">Selecione...</option>
-                        @foreach(['pendente' => 'Pendente', 'confirmada' => 'Confirmada', 'cancelada' => 'Cancelada', 'concluida' => 'Concluída'] as $val => $label)
-                            <option value="{{ $val }}" {{ old('status') == $val ? 'selected' : '' }}>{{ $label }}</option>
-                        @endforeach
-                    </select>
-                    @error('status')
-                        <span class="erro-msg">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="form-grupo">
-                    <label class="label-admin" for="valor_total">VALOR TOTAL (R$)</label>
-                    <input type="number" name="valor_total" id="valor_total" step="0.01" min="0"
-                           class="input-admin @error('valor_total') is-invalid @enderror"
-                           value="{{ old('valor_total') }}" placeholder="0,00" required>
-                    @error('valor_total')
-                        <span class="erro-msg">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div>
-
             <div class="form-grupo">
                 <label class="label-admin" for="observacoes">OBSERVAÇÕES</label>
                 <textarea name="observacoes" id="observacoes" rows="4"

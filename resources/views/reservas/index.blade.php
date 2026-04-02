@@ -41,10 +41,6 @@
                     <span class="valor-data">{{ \Carbon\Carbon::parse($reserva->data_fim)->format('d/m/Y') }}</span>
                 </div>
                 <div>
-                    <span class="label-admin">TOTAL</span>
-                    <span class="valor-admin">R$ {{ number_format($reserva->valor_total, 2, ',', '.') }}</span>
-                </div>
-                <div>
                     <span class="label-admin">STATUS</span>
                     @php
                         $badges = [
@@ -64,6 +60,7 @@
             <div class="reserva-acoes">
                 <form action="{{ route('estadias.confirmar', $reserva->id) }}" method="POST" class="d-inline">
                     @csrf
+                    <?php if($reserva->status != 'confirmada'): ?>
                     <button type="submit"
                             class="btn-admin btn-confirmar"
                             onclick="return confirm('Deseja confirmar a estadia para a Reserva #{{ $reserva->id }}?')"
@@ -71,6 +68,7 @@
                             @if($reserva->status === 'cancelada' || $reserva->estadias()->exists()) disabled @endif>
                         <i class="bi bi-house-check"></i> <span>Confirmar</span>
                     </button>
+                    <?php endif ?>
                 </form>
  
                 <a href="{{ route('reservas.show', $reserva->id) }}" class="btn-admin btn-ver" title="Visualizar">
@@ -79,6 +77,7 @@
                 <a href="{{ route('reservas.edit', $reserva->id) }}" class="btn-admin btn-editar" title="Editar">
                     <i class="bi bi-pencil-square"></i> <span>Editar</span>
                 </a>
+                <?php if($reserva->status != 'confirmada'): ?>
                 <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST" class="d-inline">
                     @csrf
                     @method('DELETE')
@@ -87,6 +86,7 @@
                         <i class="bi bi-trash" style="font-size: 22px;"></i>
                     </button>
                 </form>
+                <?php endif ?>
             </div>
 
         </div>

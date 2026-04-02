@@ -33,12 +33,12 @@ class QuartosController extends Controller
     {
         //
         $precosPorCategoria = [
-            'suite' => 350.00,
-            'luxoduplo' => 250.00,
+            'suite' => 100.00,
+            'luxoduplo' => 200.00,
             'luxotriplo' => 300.00,
-            'luxocasal' => 280.00,
-            'suiteconjugada' => 500.00,
-            'apartamentomini' => 150.00,
+            'luxocasal' => 50.00,
+            'suiteconjugada' => 600.00,
+            'apartamentomini' => 1000.00,
         ];
 
         $precoDiaria = $precosPorCategoria[$request->categoria];

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Estadias;
 use App\Models\Reservas;
 use App\Models\Quartos;
+use App\Models\Hospede;
 use Illuminate\Http\Request;
 
 class EstadiasController extends Controller
@@ -38,7 +40,6 @@ class EstadiasController extends Controller
             'data_checkin'  => 'required|date',
             'data_checkout' => 'required|date|after:data_checkin',
             'status' => 'required|in:ativa,concluida,cancelada',
-            'valor_estadia' => 'required|numeric|min:0',
             'observacoes'   => 'nullable|string|max:1000',
         ], [
             'reserva_id.required'    => 'Selecione uma reserva.',
@@ -57,10 +58,32 @@ class EstadiasController extends Controller
             'valor_estadia.min'      => 'O valor não pode ser negativo.',
         ]);
 
-        Estadias::create($request->only([
-            'reserva_id', 'quarto_id', 'data_checkin',
-            'data_checkout', 'status', 'valor_estadia', 'observacoes',
-        ]));
+        $checkin = Carbon::parse($request->data_checkin);
+        $checkout = Carbon::parse($request->data_checkout);
+
+        // Calcular a diferença em dias
+        $quantidadeDias = $checkin->diffInDays($checkout);
+        
+        // Evitar que seja 0 (1 dia = 1 diária)
+        $quantidadeDias = $quantidadeDias <= 0 ? 1 : $quantidadeDias;
+
+        // Buscar o valor da diária do quarto no banco
+        $quarto = Quartos::findOrFail($request->quarto_id);
+        $valorTotal = $quantidadeDias * $quarto->preco_diaria;
+
+        $estadia = Estadias::create([
+            'reserva_id'    => $request->reserva_id,
+            'quarto_id'     => $request->quarto_id,
+            'data_checkin'  => $request->data_checkin,
+            'data_checkout' => $request->data_checkout,
+            'status'        => $request->status,
+            'valor_estadia' => $valorTotal,
+            'observacoes'   => $request->observacoes,
+        ]);
+
+        $estadia->reserva()->update([
+            'status' => 'confirmada'
+        ]);
 
         return redirect()->route('estadias.index')
             ->with('success', 'Estadia criada com sucesso!');

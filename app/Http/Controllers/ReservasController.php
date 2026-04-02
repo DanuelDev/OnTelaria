@@ -32,8 +32,7 @@ class ReservasController extends Controller
     $reserva->nome_completo = $hospede->nome;
     $reserva->data_inicio = $request->data_inicio;
     $reserva->data_fim    = $request->data_fim;
-    $reserva->status      = $request->status;
-    $reserva->valor_total = $request->valor_total;
+    $reserva->status      = 'pendente';
     $reserva->observacoes = $request->observacoes;
 
     $reserva->save();
