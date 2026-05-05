@@ -30,11 +30,14 @@
 
             <div class="form-grupo">
                 <label class="label-admin" for="hospede_id">HÓSPEDE</label>
-                <select name="hospede_id" id="hospede_id" class="input-admin @error('hospede_id') is-invalid @enderror" required>
+                <select name="hospede_id" id="hospede_id"
+                        class="input-admin @error('hospede_id') is-invalid @enderror" required>
                     <option value="">Selecione um hóspede...</option>
-                    @foreach($hospedes as $hospede)
-                        <option value="{{ $hospede->id }}">
-                            {{ $hospede->nome }}
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}"
+                            {{ old('hospede_id', $reserva->hospede_id) == $user->id ? 'selected' : '' }}>
+                            {{ $user->name }}
+                            @if($user->email) — {{ $user->email }} @endif
                         </option>
                     @endforeach
                 </select>
@@ -67,9 +70,13 @@
             <div class="form-linha">
                 <div class="form-grupo">
                     <label class="label-admin" for="status">STATUS</label>
-                    <select name="status" id="status" class="input-admin @error('status') is-invalid @enderror" required>
+                    <select name="status" id="status"
+                            class="input-admin @error('status') is-invalid @enderror" required>
                         @foreach(['pendente' => 'Pendente', 'confirmada' => 'Confirmada', 'cancelada' => 'Cancelada', 'concluida' => 'Concluída'] as $val => $label)
-                            <option value="{{ $val }}" {{ old('status', $reserva->status) == $val ? 'selected' : '' }}>{{ $label }}</option>
+                            <option value="{{ $val }}"
+                                {{ old('status', $reserva->status) == $val ? 'selected' : '' }}>
+                                {{ $label }}
+                            </option>
                         @endforeach
                     </select>
                     @error('status')
@@ -108,11 +115,5 @@
 
     </form>
 </div>
-<script>
-    document.getElementById('hospede_id').addEventListener('change', function() {
-    document.getElementById('hospede_nome').value = 
-        this.options[this.selectedIndex].dataset.nome;
-});
-</script>
 
 @endsection

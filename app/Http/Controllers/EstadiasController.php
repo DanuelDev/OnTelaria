@@ -85,6 +85,10 @@ class EstadiasController extends Controller
             'status' => 'confirmada'
         ]);
 
+        $quarto->update([
+            'status' => 'indisponivel'
+        ]);
+
         return redirect()->route('estadias.index')
             ->with('success', 'Estadia criada com sucesso!');
     }
@@ -110,7 +114,7 @@ class EstadiasController extends Controller
             'quarto_id'     => 'required|exists:quartos,id',
             'data_checkin'  => 'required|date',
             'data_checkout' => 'required|date|after:data_checkin',
-            'status'        => 'required|in:em_andamento,concluida,cancelada,pendente',
+            'status' => 'required|in:ativa,concluida,cancelada',
             'valor_estadia' => 'required|numeric|min:0',
             'observacoes'   => 'nullable|string|max:1000',
         ], [

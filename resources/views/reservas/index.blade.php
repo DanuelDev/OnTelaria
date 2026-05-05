@@ -30,7 +30,7 @@
                 </div>
                 <div class="reserva-hospede">
                     <span class="label-admin">HÓSPEDE</span>
-                    <span class="nome-hospede">{{ $reserva->hospede->nome }}</span>
+                    <span class="nome-hospede">{{ $reserva->nome_completo }}</span>
                 </div>
                 <div>
                     <span class="label-admin">CHECK-IN</span>

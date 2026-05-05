@@ -1,7 +1,23 @@
 @extends('layout')
 
 @section('conteudo')
+  <style>
+    /* Esconde o formulário que tiver a classe hidden */
+.hidden {
+  display: none !important;
+}
 
+/* Estilo para a aba ativa (opcional, para feedback visual) */
+.tab {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.tab.active {
+  border-bottom: 2px solid #000; /* Ou a cor do seu sistema */
+  font-weight: bold;
+}
+  </style>
   <div class="container">
     <div class="tabs">
       <div class="tab active" data-tab="login">Login</div>
@@ -13,66 +29,82 @@
       <div class="logo">OnTelaria</div>
 
       <!-- ========== FORMULÁRIO DE LOGIN ========== -->
-      <form id="loginForm" class="auth-form">
-        <h1>Entrar no Sistema</h1>
+      <form id="loginForm" class="auth-form" method="POST" action="{{ route('login.post') }}">
+          @csrf
+          <h1>Entrar no Sistema</h1>
 
-        <div class="form-group">
-          <label for="login-email">Email / Usuário</label>
-          <input 
-            type="text" 
-            id="login-email" 
-            placeholder="seu@email.com ou usuário"
-            required
-          >
-        </div>
+          @if ($errors->has('email'))
+              <div class="alert-error">{{ $errors->first('email') }}</div>
+          @endif
 
-        <div class="form-group password-group">
-          <label for="login-password">Senha</label>
-          <input 
-            type="password" 
-            id="login-password" 
-            placeholder="••••••••"
-            required
-          >
-        </div>
+          <div class="form-group">
+              <label for="login-email">Email / Usuário</label>
+              <input 
+                  type="text" 
+                  id="login-email"
+                  name="email"
+                  value="{{ old('email') }}"
+                  placeholder="seu@email.com ou usuário"
+                  required
+              >
+          </div>
 
-        <button type="submit">Entrar</button>
+          <div class="form-group password-group">
+              <label for="login-password">Senha</label>
+              <input 
+                  type="password" 
+                  id="login-password"
+                  name="password"
+                  placeholder="••••••••"
+                  required
+              >
+          </div>
 
-        <div class="extras">
-          <a href="#">Esqueci minha senha</a>
-        </div>
+          <button type="submit">Entrar</button>
+
+          <div class="extras">
+              <a href="#">Esqueci minha senha</a>
+          </div>
       </form>
 
       <!-- ========== FORMULÁRIO DE REGISTRO ========== -->
-      <form id="registerForm" class="auth-form hidden">
-        <h1>Criar Conta</h1>
+      <form id="registerForm" class="auth-form hidden" method="POST" action="{{ route('register.post') }}">
+          @csrf
+          <h1>Criar Conta</h1>
 
-        <div class="form-group">
-          <label for="reg-nome">Nome completo</label>
-          <input type="text" id="reg-nome" placeholder="João Silva" required>
-        </div>
+          @if ($errors->any() && old('_form') === 'register')
+              <div class="alert-error">
+                  <ul>@foreach ($errors->all() as $e)<li>{{ $e }}</li>@endforeach</ul>
+              </div>
+          @endif
 
-        <div class="form-group">
-          <label for="reg-email">Email</label>
-          <input type="email" id="reg-email" placeholder="seu@email.com" required>
-        </div>
+          <input type="hidden" name="_form" value="register">
 
-        <div class="form-group password-group">
-          <label for="reg-password">Senha</label>
-          <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" required>
-          
-        </div>
+          <div class="form-group">
+              <label for="reg-nome">Nome completo</label>
+              <input type="text" id="reg-nome" name="nome" value="{{ old('nome') }}" placeholder="João Silva" required>
+          </div>
 
-        <div class="form-group password-group">
-          <label for="reg-password2">Confirmar senha</label>
-          <input type="password" id="reg-password2" placeholder="Repita a senha" required>
-        </div>
+          <div class="form-group">
+              <label for="reg-email">Email</label>
+              <input type="email" id="reg-email" name="email" value="{{ old('email') }}" placeholder="seu@email.com" required>
+          </div>
 
-        <button type="submit">Criar conta</button>
+          <div class="form-group password-group">
+              <label for="reg-password">Senha</label>
+              <input type="password" id="reg-password" name="password" placeholder="Mínimo 8 caracteres" required>
+          </div>
 
-        <div class="extras">
-          Já tem conta? <a href="#" class="switch-to-login">Faça login</a>
-        </div>
+          <div class="form-group password-group">
+              <label for="reg-password2">Confirmar senha</label>
+              <input type="password" id="reg-password2" name="password_confirmation" placeholder="Repita a senha" required>
+          </div>
+
+          <button type="submit">Criar conta</button>
+
+          <div class="extras">
+              Já tem conta? <a href="#" class="switch-to-login">Faça login</a>
+          </div>
       </form>
 
     </div>
@@ -100,7 +132,7 @@
     // Links para alternar (no rodapé do registro)
     document.querySelectorAll('.switch-to-login').forEach(link => {
       link.addEventListener('click', e => {
-        e.preventDefault();
+        e.preventDefault(); // Impede a página de recarregar
         document.querySelector('.tab[data-tab="login"]').click();
       });
     });
@@ -115,13 +147,10 @@
       });
     });
 
-    // Prevenção de submit (apenas demonstração)
-    document.querySelectorAll('.auth-form').forEach(form => {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        alert('Formulário enviado! (simulação)\n\n' + 
-              'Ação: ' + (form.id === 'loginForm' ? 'Login' : 'Registro'));
-        // Aqui você colocaria fetch() para sua API
-      });
-    });
+    window.addEventListener('DOMContentLoaded', () => {
+      const activeForm = "{{ old('_form') }}"; 
+      if (activeForm === 'register') {
+          document.querySelector('.tab[data-tab="register"]').click();
+      }
+  });
   </script>

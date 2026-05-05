@@ -29,11 +29,16 @@
 
             <div class="form-grupo">
                 <label class="label-admin" for="hospede_id">HÓSPEDE</label>
-                <select name="hospede_id" id="hospede_id" class="input-admin @error('hospede_id') is-invalid @enderror" required>
+                <select name="hospede_id" id="hospede_id"
+                        class="input-admin @error('hospede_id') is-invalid @enderror" required>
                     <option value="">Selecione um hóspede...</option>
-                    @foreach($hospedes as $hospede)
-                        <option value="{{ $hospede->id }}" {{ old('hospede_id') == $hospede->id ? 'selected' : '' }}>
-                            {{ $hospede->nome }}
+                    @foreach($users as $user)
+                        <option value="{{ $user->id }}"
+                            {{ old('hospede_id') == $user->id ? 'selected' : '' }}>
+                            {{ $user->name }}
+                            @if($user->email)
+                                — {{ $user->email }}
+                            @endif
                         </option>
                     @endforeach
                 </select>
@@ -84,6 +89,5 @@
 
     </form>
 </div>
-
 
 @endsection

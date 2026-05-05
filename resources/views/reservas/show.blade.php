@@ -28,7 +28,7 @@
             </div>
             <div>
                 <span class="label-admin">HÓSPEDE</span>
-                <p style="font-size:1.2rem; font-weight:700; color:var(--escuro); margin:0;">{{ $reserva->hospede->nome }}</p>
+                <p style="font-size:1.2rem; font-weight:700; color:var(--escuro); margin:0;">{{ $reserva->nome_completo }}</p>
             </div>
             @php
                 $badges = [

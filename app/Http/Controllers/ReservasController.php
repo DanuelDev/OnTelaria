@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservas;
-use App\Models\Hospede;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Exception;
@@ -18,27 +18,25 @@ class ReservasController extends Controller
 
     public function create()
     {
-        $hospedes = Hospede::orderBy('nome')->get();
-        return view('reservas.create', compact('hospedes'));
+        $users = User::where('role', 'client')->orderBy('name')->get();
+        return view('reservas.create', compact('users'));
     }
 
     public function store(Request $request)
-{
-    $reserva = new Reservas();
+    {
+        $user = User::findOrFail($request->hospede_id);
 
-    $hospede = Hospede::findOrFail($request->hospede_id);
+        $reserva = new Reservas();
+        $reserva->hospede_id    = $request->hospede_id;
+        $reserva->nome_completo = $user->name;
+        $reserva->data_inicio   = $request->data_inicio;
+        $reserva->data_fim      = $request->data_fim;
+        $reserva->status        = 'pendente';
+        $reserva->observacoes   = $request->observacoes;
+        $reserva->save();
 
-    $reserva->hospede_id  = $request->hospede_id;
-    $reserva->nome_completo = $hospede->nome;
-    $reserva->data_inicio = $request->data_inicio;
-    $reserva->data_fim    = $request->data_fim;
-    $reserva->status      = 'pendente';
-    $reserva->observacoes = $request->observacoes;
-
-    $reserva->save();
-
-    return redirect()->route('reservas.index')->with('success', 'Reserva criada com sucesso!');
-}
+        return redirect()->route('reservas.index')->with('success', 'Reserva criada com sucesso!');
+    }
 
     public function show($id)
     {
@@ -48,27 +46,24 @@ class ReservasController extends Controller
 
     public function edit($id)
     {
-        $reserva  = Reservas::findOrFail($id);
-        $hospedes = Hospede::orderBy('nome')->get();
-        return view('reservas.edit', compact('reserva', 'hospedes'));
+        $reserva = Reservas::findOrFail($id);
+        $users   = User::where('role', 'client')->orderBy('name')->get();
+        return view('reservas.edit', compact('reserva', 'users'));
     }
 
     public function update(Request $request, $id)
     {
         try {
             $reserva = Reservas::findOrFail($id);
+            $user    = User::findOrFail($request->hospede_id);
 
-            $hospede = Hospede::findOrFail($request->hospede_id);
-
-            $reserva->hospede_id  = $request->hospede_id;
-            $reserva->hospede_nome = $hospede->nome;
-            $reserva->data_inicio = $request->data_inicio;
-            $reserva->data_fim    = $request->data_fim;
-            $reserva->status      = $request->status;
-            $reserva->valor_total = $request->valor_total;
-            $reserva->observacoes = $request->observacoes;
-
-            $reserva->status = 'confirmada';
+            $reserva->hospede_id    = $request->hospede_id;
+            $reserva->nome_completo = $user->name;
+            $reserva->data_inicio   = $request->data_inicio;
+            $reserva->data_fim      = $request->data_fim;
+            $reserva->status        = $request->status ?? 'confirmada';
+            $reserva->valor_total   = $request->valor_total;
+            $reserva->observacoes   = $request->observacoes;
             $reserva->save();
 
         } catch (Exception $e) {

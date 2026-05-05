@@ -9,6 +9,16 @@ use Exception;
 
 class QuartosController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware(function ($request, $next) {
+    //         if (auth()->user()->role === 'client') {
+    //             return redirect()->route('index')->with('erro', 'Acesso negado!');
+    //         }
+    //         return $next($request);
+    //     });
+    // }
+    
     /**
      * Display a listing of the resource.
      */
