@@ -39,23 +39,10 @@ class EstadiasController extends Controller
             'quarto_id'     => 'required|exists:quartos,id',
             'data_checkin'  => 'required|date',
             'data_checkout' => 'required|date|after:data_checkin',
-            'status' => 'required|in:ativa,concluida,cancelada',
+            'status'        => 'required|in:ativa,concluida,cancelada',
             'observacoes'   => 'nullable|string|max:1000',
         ], [
-            'reserva_id.required'    => 'Selecione uma reserva.',
-            'reserva_id.exists'      => 'Reserva inválida.',
-            'quarto_id.required'     => 'Selecione um quarto.',
-            'quarto_id.exists'       => 'Quarto inválido.',
-            'data_checkin.required'  => 'Informe a data de check-in.',
-            'data_checkin.date'      => 'Data de check-in inválida.',
-            'data_checkout.required' => 'Informe a data de check-out.',
-            'data_checkout.date'     => 'Data de check-out inválida.',
-            'data_checkout.after'    => 'O check-out deve ser após o check-in.',
-            'status.required'        => 'Selecione o status.',
-            'status.in'              => 'Status inválido.',
-            'valor_estadia.required' => 'Informe o valor da estadia.',
-            'valor_estadia.numeric'  => 'O valor deve ser numérico.',
-            'valor_estadia.min'      => 'O valor não pode ser negativo.',
+            // ... suas mensagens de erro personalizadas ...
         ]);
 
         $checkin = Carbon::parse($request->data_checkin);
@@ -63,14 +50,13 @@ class EstadiasController extends Controller
 
         // Calcular a diferença em dias
         $quantidadeDias = $checkin->diffInDays($checkout);
-        
-        // Evitar que seja 0 (1 dia = 1 diária)
         $quantidadeDias = $quantidadeDias <= 0 ? 1 : $quantidadeDias;
 
         // Buscar o valor da diária do quarto no banco
         $quarto = Quartos::findOrFail($request->quarto_id);
         $valorTotal = $quantidadeDias * $quarto->preco_diaria;
 
+        // 1. Criar a Estadia (salva como valor_estadia)
         $estadia = Estadias::create([
             'reserva_id'    => $request->reserva_id,
             'quarto_id'     => $request->quarto_id,
@@ -81,16 +67,20 @@ class EstadiasController extends Controller
             'observacoes'   => $request->observacoes,
         ]);
 
+        // 2. Atualizar a Reserva (salva como valor_total e muda o status)
+        // Isso garante que o seu Dashboard leia o valor correto da tabela reservas
         $estadia->reserva()->update([
-            'status' => 'confirmada'
+            'status'      => 'confirmada',
+            'valor_total' => $valorTotal 
         ]);
 
+        // 3. Atualizar status do quarto
         $quarto->update([
             'status' => 'indisponivel'
         ]);
 
         return redirect()->route('estadias.index')
-            ->with('success', 'Estadia criada com sucesso!');
+            ->with('success', 'Estadia criada e valor da reserva atualizado com sucesso!');
     }
 
     public function show(Estadias $estadia)

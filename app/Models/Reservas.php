@@ -16,7 +16,7 @@ class Reservas extends Model
 
     public function hospede()
     {
-        return $this->belongsTo(Hospede::class, 'hospede_id');
+        return $this->belongsTo(User::class, 'hospede_id');
     }
 
     public function estadias()

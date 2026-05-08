@@ -46,4 +46,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reservas::class, 'hospede_id');
+    }
+
+    // Se você quiser manter o nome 'hospede' como uma relação inversa
+    public function hospede()
+    {
+        // Caso o User seja o próprio hóspede (auto-relacionamento ou alias)
+        return $this->belongsTo(User::class, 'id'); 
+    }
 }
