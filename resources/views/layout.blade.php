@@ -519,14 +519,33 @@
     .form-acoes { display: flex; justify-content: flex-end; align-items: center; gap: 1rem; }
 
     .btn-salvar {
-        background: var(--primaria); color: white; border: none;
-        border-radius: 8px; padding: 0.7rem 1.8rem; font-size: 1rem;
-        font-weight: 600; cursor: pointer;
-        display: inline-flex; align-items: center; gap: 8px;
-        text-decoration: none; transition: background 0.2s;
-    }
+    background: var(--primaria); 
+    color: white; 
+    border: none;
+    border-radius: 8px; 
+    
+    /* Diminuí levemente o padding vertical para o botão não ficar tão alto */
+    padding: 0.5rem 1.2rem; 
+    
+    font-size: 0.95rem; /* Fonte levemente menor para um look mais elegante */
+    font-weight: 600; 
+    cursor: pointer;
+    
+    /* Garante que o botão só ocupe o espaço necessário do texto */
+    display: inline-flex; 
+    width: fit-content; 
+    
+    align-items: center; 
+    gap: 8px;
+    text-decoration: none; 
+    transition: background 0.2s;
 
-    .btn-salvar:hover { background: #a53737; }
+    margin-bottom: 20px;
+}
+
+.btn-salvar:hover { 
+    background: #a53737; 
+}
 
     .btn-cancelar {
         color: var(--secundaria); font-size: 0.95rem; font-weight: 600;
@@ -538,6 +557,7 @@
 
     .btn-excluir-show {
         background: white; color: #c62828;
+        margin-bottom: 40px;
         border: 1.5px solid #ef9a9a; border-radius: 8px;
         padding: 0.7rem 1.4rem; font-size: 0.95rem; font-weight: 600;
         cursor: pointer; display: inline-flex; align-items: center; gap: 8px;

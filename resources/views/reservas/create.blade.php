@@ -81,9 +81,13 @@
         </div>
 
         <div class="form-acoes">
-            <a href="{{ route('reservas.index') }}" class="btn-cancelar">Cancelar</a>
+            <a href="{{ route('reservas.index') }}" class="btn-cancelar" title="Voltar sem salvar">
+                Cancelar
+            </a>
+            
             <button type="submit" class="btn-salvar">
-                <i class="bi bi-check-lg"></i> Salvar Reserva
+                <i class="bi bi-check-lg" aria-hidden="true"></i> 
+                <span>Salvar Reserva</span>
             </button>
         </div>
 

@@ -58,7 +58,6 @@ CREATE TABLE reservas (
     -- Observações (já existente)
     observacoes TEXT,
     -- Restrições
-    FOREIGN KEY (hospede_id) REFERENCES hospedes(id) ON DELETE CASCADE,
     CHECK (data_fim > data_inicio)
 );
 

@@ -117,16 +117,20 @@
             </div>
 
             {{-- Botões --}}
-            <div style="display: flex; gap: 0.8rem; justify-content: flex-end; padding-top: 1rem; border-top: 1.5px solid #f0f0f0;">
-                <a href="{{ route('estadias.index') }}"
-                   style="padding: 0.65rem 1.4rem; border-radius: 9px; background: #f5f5f5; color: #666; font-size: 0.88rem; font-weight: 700; text-decoration: none;">
-                    Cancelar
-                </a>
-                <button type="submit"
-                        style="padding: 0.65rem 1.6rem; border-radius: 9px; background: var(--primaria); color: white; font-size: 0.88rem; font-weight: 700; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-                    <i class="bi bi-check-lg"></i> Criar Estadia
-                </button>
-            </div>
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 2rem; width: 100%;">
+    
+    <a href="{{ route('estadias.index') }}"
+       style="padding: 0 24px; border-radius: 9px; background: white; color: #64748b; font-size: 0.88rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; height: 42px; border: 1.5px solid #e2e8f0; box-sizing: border-box;">
+        Cancelar
+    </a>
+
+    <button type="submit"
+            style="width: auto; min-width: 160px; margin-bottom: 20px; border-radius: 9px; background: #c04d4d; color: white; font-size: 0.88rem; font-weight: 600; border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 42px; box-sizing: border-box;">
+        <i class="bi bi-check-lg"></i>
+        <span>Criar Estadia</span>
+    </button>
+
+</div>
         </form>
     </div>
 

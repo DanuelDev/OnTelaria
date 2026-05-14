@@ -144,7 +144,6 @@
           <th>Hóspede</th>
           <th>Check-in</th>
           <th>Check-out</th>
-          <th>Valor</th>
           <th>Status</th>
           <th></th>
         </tr>

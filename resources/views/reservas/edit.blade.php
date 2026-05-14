@@ -83,15 +83,6 @@
                         <span class="erro-msg">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-grupo">
-                    <label class="label-admin" for="valor_total">VALOR TOTAL (R$)</label>
-                    <input type="number" name="valor_total" id="valor_total" step="0.01" min="0"
-                           class="input-admin @error('valor_total') is-invalid @enderror"
-                           value="{{ old('valor_total', $reserva->valor_total) }}" required>
-                    @error('valor_total')
-                        <span class="erro-msg">{{ $message }}</span>
-                    @enderror
-                </div>
             </div>
 
             <div class="form-grupo">

@@ -45,39 +45,44 @@
         </div>
 
         {{-- Datas --}}
-        <div class="show-linha" style="margin-bottom:1.5rem;">
+        <div class="show-linha" style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+            
             <div class="show-grupo">
-                <span class="label-admin">CHECK-IN</span>
-                <p class="show-valor">
+                <span class="label-admin" style="display: block;">CHECK-IN</span>
+                <p class="show-valor" style="margin: 0;">
                     <i class="bi bi-calendar-check" style="color:var(--primaria);"></i>
                     {{ \Carbon\Carbon::parse($reserva->data_inicio)->format('d/m/Y') }}
                 </p>
             </div>
-            <div class="show-seta">
+
+            <div class="show-seta" style="display: flex; align-items: center; padding-top: 1rem;">
                 <i class="bi bi-arrow-right" style="color:var(--secundaria); font-size:1.2rem;"></i>
             </div>
+
             <div class="show-grupo">
-                <span class="label-admin">CHECK-OUT</span>
-                <p class="show-valor">
+                <span class="label-admin" style="display: block;">CHECK-OUT</span>
+                <p class="show-valor" style="margin: 0;">
                     <i class="bi bi-calendar-x" style="color:var(--primaria);"></i>
                     {{ \Carbon\Carbon::parse($reserva->data_fim)->format('d/m/Y') }}
                 </p>
             </div>
+
             <div class="show-grupo" style="text-align:center;">
-                <span class="label-admin">DURAÇÃO</span>
-                <p class="show-valor" style="color:var(--primaria);">
+                <span class="label-admin" style="display: block;">DURAÇÃO</span>
+                <p class="show-valor" style="color:var(--primaria); margin: 0;">
                     {{ \Carbon\Carbon::parse($reserva->data_inicio)->diffInDays($reserva->data_fim) }} noites
                 </p>
             </div>
+
         </div>
 
         {{-- Valor --}}
-        <div style="background:var(--clara); border:1px solid var(--bege); border-radius:10px; padding:1rem 1.5rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
+        <!-- <div style="background:var(--clara); border:1px solid var(--bege); border-radius:10px; padding:1rem 1.5rem; margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center;">
             <span class="label-admin" style="margin:0;">VALOR TOTAL DA HOSPEDAGEM</span>
             <span style="font-size:1.6rem; font-weight:700; color:var(--primaria);">
                 R$ {{ number_format($reserva->valor_total, 2, ',', '.') }}
             </span>
-        </div>
+        </div> -->
 
         {{-- Observações --}}
         @if($reserva->observacoes)
