@@ -176,15 +176,16 @@
                                        onmouseout="this.style.background='#f5f5f5';this.style.color='#555'">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <form action="{{ route('estadias.destroy', $estadia->id) }}" method="POST" onsubmit="return confirm('Deseja excluir esta estadia?')">
+                                    <form action="{{ route('estadias.cancelar', $estadia->id) }}" method="POST" onsubmit="return confirm('Deseja cancelar esta estadia?')">
                                         @csrf
-                                        @method('DELETE')
+                                        @method('PATCH')
                                         <button type="submit"
-                                                style="margin: 0; width: 32px; height: 32px; border-radius: 8px; background: #f5f5f5; color: #555; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font-size: 0.9rem; transition: all 0.2s;"
-                                                title="Excluir"
+                                                style="margin: 0; width: 32px; height: 32px; border-radius: 8px; background: #f5f5f5; color: #555; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.2s; border: none; cursor: pointer;"
+                                                title="Cancelar estadia"
                                                 onmouseover="this.style.background='#fef2f2';this.style.color='#ef4444'"
-                                                onmouseout="this.style.background='#f5f5f5';this.style.color='#555'">
-                                            <i class="bi bi-trash"></i>
+                                                onmouseout="this.style.background='#f5f5f5';this.style.color='#555'"
+                                                {{ $estadia->status === 'cancelada' ? 'disabled' : '' }}>
+                                            <i class="bi bi-x-circle"></i>
                                         </button>
                                     </form>
                                 </div>

@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
         
         Route::resource('quartos', QuartosController::class);
         Route::resource('estadias', EstadiasController::class);
-        
+        Route::patch('estadias/{estadia}/cancelar', [EstadiasController::class, 'cancelar'])->name('estadias.cancelar');
         Route::post('estadias/confirmar/{reserva}', [EstadiasController::class, 'confirmar'])
             ->name('estadias.confirmar');
     });

@@ -576,62 +576,12 @@
     .reserva-acoes { display: flex; gap: 0.8rem; align-items: center; }
 
     .btn-admin {
-        /* Estrutura e Alinhamento */
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        
-        /* Tipografia e Espaçamento */
-        padding: 10px 20px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        text-decoration: none;
-        font-family: sans-serif;
-        letter-spacing: 0.3px;
-        
-        /* Estilo Visual */
-        color: #1a1a1b;
-        background-color: #ffffff;
-        border: 1.5px solid #e2e8f0; /* Borda mais suave que preto puro */
-        border-radius: 10px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        
-        /* Interação */
-        cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none; padding: 8px 16px; border-radius: 8px;
+        font-size: 0.9rem; font-weight: 600;
+        display: flex; align-items: center; gap: 8px;
+        transition: all 0.2s; border: 1px solid transparent;
+        cursor: pointer; background: white;
     }
-
-    .btn-confirmar {
-    /* Estrutura e Alinhamento */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 20px;
-    
-    /* Tipografia (Forte para ação principal) */
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: none;
-    
-    /* Estilo Visual (Preenchimento Sólido) */
-    background-color: #0e7490; /* Um azul petróleo moderno e sóbrio */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    
-    /* Sombras e Profundidade */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 
-                0 1px 2px rgba(0, 0, 0, 0.06);
-    
-    /* Transição Suave */
-    transition: all 0.2s ease-in-out;
-}
 
     .btn-ver     { color: var(--secundaria); border-color: var(--secundaria); }
     .btn-ver:hover { background: var(--secundaria); color: white; }
@@ -682,92 +632,6 @@
   </style>
 </head>
 <body>
-
-  {{-- ================================================================
-       HEADER DINÂMICO — adapta conforme autenticação e papel do usuário
-  ================================================================== --}}
-  <header>
-    <nav>
-        <a href="{{ url('/') }}" class="logo" style="text-decoration: none;">
-            ON<span style="color: var(--secundaria)">TELARIA</span>
-        </a>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-
-        <ul class="menu">
-
-            @auth
-                {{-- ── FUNCIONÁRIO: acesso completo ── --}}
-                @if(auth()->user()->role === 'funcionario')
-                    
-                    {{-- ── Link para o Dashboard ── --}}
-                    <li>
-                        <a href="{{ route('dashboard') }}" style="color: var(--cinza); text-decoration:none; font-size: 0.9rem;">
-                            <i class="bi bi-grid-1x2-fill"></i> Dashboard
-                        </a>
-                    </li>
-                    <li><a href="#">Clientes</a></li>
-                    <li><a href="{{ route('quartos.index') }}">Quartos</a></li>
-                    <li><a href="{{ route('estadias.index') }}">Estadias</a></li>
-                    <li>
-                        <a href="{{ route('reservas.index') }}" class="btn-reserva">
-                            Nova Reserva
-                        </a>
-                    </li>
-
-                {{-- ── CLIENTE: somente nova reserva ── --}}
-                @else
-                    <li>
-                        <a href="{{ route('reservas.create') }}" class="btn-reserva">
-                            Nova Reserva
-                        </a>
-                    </li>
-                @endif
-
-                {{-- ── Badge do usuário logado ── --}}
-                <li>
-                    <span class="user-badge">
-                        <span class="avatar-mini">
-                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                        </span>
-                        {{ auth()->user()->name }}
-                        &nbsp;·&nbsp;
-                        <em style="font-style:normal; color: var(--primaria); font-weight:600;">
-                            {{ auth()->user()->role === 'funcionario' ? 'Funcionário' : 'client' }}
-                        </em>
-                    </span>
-                </li>
-
-                {{-- ── Logout ── --}}
-                <li>
-                    <a href="#" class="btn-logout"
-                       onclick="event.preventDefault(); document.getElementById('form-logout-nav').submit();">
-                        <i class="bi bi-box-arrow-right"></i> Sair
-                    </a>
-                    <form id="form-logout-nav" action="{{ route('logout') }}" method="POST" style="display:none;">
-                        @csrf
-                    </form>
-                </li>
-
-            @else
-                {{-- ── Visitante (não logado) ── --}}
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#quartos">Quartos</a></li>
-                <li>
-                    <a href="{{ route('login') }}" class="btn-reserva">
-                        Entrar
-                    </a>
-                </li>
-            @endauth
-
-        </ul>
-    </nav>
-  </header>
 
   <style>
     /* Esconde o checkbox */

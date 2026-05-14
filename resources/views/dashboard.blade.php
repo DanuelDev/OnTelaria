@@ -164,7 +164,7 @@
           <td>{{ $r->nome_completo ?? '—' }}</td>
           <td>{{ \Carbon\Carbon::parse($r->data_inicio)->format('d/m/Y') }}</td>
           <td>{{ \Carbon\Carbon::parse($r->data_fim)->format('d/m/Y') }}</td>
-          <td>R$ {{ number_format($r->valor_total ?? 0, 0, ',', '.') }}</td>
+          <!-- <td>R$ {{ number_format($r->valor_total ?? 0, 0, ',', '.') }}</td> -->
           <td><span class="tb-badge" style="color:{{ $bc }};background:{{ $bg }}">{{ $bl }}</span></td>
           <td><a href="{{ route('reservas.show', $r->id) }}" class="tb-link"><i class="bi bi-eye"></i></a></td>
         </tr>

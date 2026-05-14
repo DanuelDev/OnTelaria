@@ -149,4 +149,22 @@ class EstadiasController extends Controller
             'valor_estadia' => $reserva->valor_total,
         ]);
     }
+
+    public function cancelar(Estadias $estadia)
+    {
+        if ($estadia->status === 'cancelada') {
+            return redirect()->route('estadias.index')
+                ->with('error', 'Esta estadia já está cancelada.');
+        }
+
+        $estadia->update(['status' => 'cancelada']);
+
+        $estadia->reserva()->update(['status' => 'cancelada']);
+
+        $estadia->quarto()->update(['status' => 'disponivel']);
+
+
+        return redirect()->route('estadias.index')
+            ->with('success', 'Estadia cancelada com sucesso.');
+    }
 }
