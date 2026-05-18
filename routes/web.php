@@ -12,16 +12,12 @@ use Illuminate\Support\Facades\Config;
 // --- ROTAS PÚBLICAS (Visitantes) ---
 
 Route::get('/rodar-migrations-secreto', function () {
-    // Força o driver de sessão a virar 'file' na marra antes de dar erro
     Config::set('session.driver', 'file');
-    
     try {
-        Artisan::call('migrate', ['--force' => true]);
-        
-        $output = Artisan::output();
-        return '<h1>Banco de dados atualizado com sucesso! 🎉</h1><pre>' . $output . '</pre>';
+        Artisan::call('migrate:fresh', ['--force' => true, '--seed' => true]);
+        return '<h1>OnTelaria configurado com absoluto sucesso na nuvem! 🚀</h1>';
     } catch (\Exception $e) {
-        return '<h1>Erro ao rodar as migrations:</h1><br><pre>' . $e->getMessage() . '</pre>';
+        return '<h1>Erro:</h1><pre>' . $e->getMessage() . '</pre>';
     }
 });
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
