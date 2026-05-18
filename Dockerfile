@@ -38,4 +38,10 @@ RUN php artisan config:clear
 RUN php artisan route:clear
 RUN php artisan view:clear
 
+# Remove QUALQUER arquivo de cache que possa ter sido gerado na compilação
+RUN rm -f bootstrap/cache/config.php \
+    && rm -f bootstrap/cache/routes.php \
+    && rm -f bootstrap/cache/services.php \
+    && rm -f bootstrap/cache/packages.php
+
 EXPOSE 80
