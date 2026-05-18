@@ -7,15 +7,21 @@ use App\Http\Controllers\EstadiasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Config;
 
 // --- ROTAS PÚBLICAS (Visitantes) ---
 
 Route::get('/rodar-migrations-secreto', function () {
+    // Força o driver de sessão a virar 'file' na marra antes de dar erro
+    Config::set('session.driver', 'file');
+    
     try {
         Artisan::call('migrate', ['--force' => true]);
-        return 'Banco de dados atualizado com sucesso! 🎉';
+        
+        $output = Artisan::output();
+        return '<h1>Banco de dados atualizado com sucesso! 🎉</h1><pre>' . $output . '</pre>';
     } catch (\Exception $e) {
-        return 'Erro ao rodar as migrations: <br><br>' . $e->getMessage();
+        return '<h1>Erro ao rodar as migrations:</h1><br><pre>' . $e->getMessage() . '</pre>';
     }
 });
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
