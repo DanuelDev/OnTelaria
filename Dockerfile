@@ -33,4 +33,9 @@ RUN composer install --no-interaction --optimize-autoloader --no-dev
 # Dá as permissões corretas para as pastas do Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Limpa QUALQUER cache que tenha subido pelo Git
+RUN php artisan config:clear
+RUN php artisan route:clear
+RUN php artisan view:clear
+
 EXPOSE 80
