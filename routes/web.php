@@ -6,8 +6,18 @@ use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\EstadiasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Artisan;
 
 // --- ROTAS PÚBLICAS (Visitantes) ---
+
+Route::get('/rodar-migrations-secreto', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return 'Banco de dados atualizado com sucesso! 🎉';
+    } catch (\Exception $e) {
+        return 'Erro ao rodar as migrations: <br><br>' . $e->getMessage();
+    }
+});
 Route::get('/', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
