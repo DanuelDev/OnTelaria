@@ -21,17 +21,14 @@ class UserFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+        public function definition(): array
     {
-        // Cria uma instância limpa e direta do Faker
-        $faker = \Faker\Factory::create();
-
         return [
-            'name' => $faker->name(),
-            'email' => $faker->unique()->safeEmail(),
+            'name' => 'Usuário Padrão',
+            'email' => 'admin.' . time() . rand(10, 99) . '@email.com', // Gera um email único sem precisar de Faker
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'password' => static::$password ??= \Illuminate\Support\Facades\Hash::make('password'),
+            'remember_token' => \Illuminate\Support\Str::random(10),
         ];
     }
 
