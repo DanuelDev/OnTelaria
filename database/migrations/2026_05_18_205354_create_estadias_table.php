@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('estadias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('reserva_id')->constrained('reservas')->onDelete('cascade');
-            $table->foreignId('quarto_id')->constrained('quartos')->onDelete('restrict');
+            $table->unsignedBigInteger('reserva_id'); // Apenas a coluna inteira
+            $table->unsignedBigInteger('quarto_id');  // Apenas a coluna inteira
             $table->dateTime('data_checkin')->nullable();
             $table->dateTime('data_checkout')->nullable();
             $table->string('status', 20)->default('ativa');

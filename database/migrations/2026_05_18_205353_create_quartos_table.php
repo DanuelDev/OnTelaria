@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('quartos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('hospede_id')->nullable()->constrained('hospedes')->onDelete('set_null');
+            $table->unsignedBigInteger('hospede_id')->nullable(); // Apenas a coluna, sem a restrição física de FK
             $table->string('numero', 10)->unique();
             $table->string('tipo', 50);
             $table->integer('capacidade');
             $table->decimal('preco_diaria', 10, 2);
             $table->text('descricao')->nullable();
-            $table->string('status', 20)->default('disponivel'); // Evitamos ENUM bruto para manter compatibilidade total Postgres/MySQL
+            $table->string('status', 20)->default('disponivel');
             $table->timestamps();
         });
     }
