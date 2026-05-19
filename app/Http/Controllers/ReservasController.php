@@ -18,17 +18,32 @@ class ReservasController extends Controller
 
     public function create()
     {
-        $users = User::where('role', 'client')->orderBy('name')->get();
+        $user = auth()->user();
+
+        if ($user && $user->role === 'client') {
+            $users = collect([$user]);
+        } else {
+            $users = User::where('role', 'client')->orderBy('name')->get();
+        }
+
         return view('reservas.create', compact('users'));
     }
 
     public function store(Request $request)
     {
-        $user = User::findOrFail($request->hospede_id);
+        $user = auth()->user();
+
+        if ($user && $user->role === 'client') {
+            $hospedeId = $user->id;
+            $hospede = $user;
+        } else {
+            $hospedeId = $request->hospede_id;
+            $hospede = User::findOrFail($hospedeId);
+        }
 
         $reserva = new Reservas();
-        $reserva->hospede_id    = $request->hospede_id;
-        $reserva->nome_completo = $user->name;
+        $reserva->hospede_id    = $hospedeId;
+        $reserva->nome_completo = $hospede->name;
         $reserva->data_inicio   = $request->data_inicio;
         $reserva->data_fim      = $request->data_fim;
         $reserva->status        = 'pendente';

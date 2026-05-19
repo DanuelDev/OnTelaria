@@ -27,25 +27,29 @@
 
         <div class="form-card">
 
-            <div class="form-grupo">
-                <label class="label-admin" for="hospede_id">HÓSPEDE</label>
-                <select name="hospede_id" id="hospede_id"
-                        class="input-admin @error('hospede_id') is-invalid @enderror" required>
-                    <option value="">Selecione um hóspede...</option>
-                    @foreach($users as $user)
-                        <option value="{{ $user->id }}"
-                            {{ old('hospede_id') == $user->id ? 'selected' : '' }}>
-                            {{ $user->name }}
-                            @if($user->email)
-                                — {{ $user->email }}
-                            @endif
-                        </option>
-                    @endforeach
-                </select>
-                @error('hospede_id')
-                    <span class="erro-msg">{{ $message }}</span>
-                @enderror
-            </div>
+            @if(auth()->user() && auth()->user()->role === 'client')
+                <input type="hidden" name="hospede_id" value="{{ auth()->id() }}">
+            @else
+                <div class="form-grupo">
+                    <label class="label-admin" for="hospede_id">HÓSPEDE</label>
+                    <select name="hospede_id" id="hospede_id"
+                            class="input-admin @error('hospede_id') is-invalid @enderror" required>
+                        <option value="">Selecione um hóspede...</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}"
+                                {{ old('hospede_id') == $user->id ? 'selected' : '' }}>
+                                {{ $user->name }}
+                                @if($user->email)
+                                    — {{ $user->email }}
+                                @endif
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('hospede_id')
+                        <span class="erro-msg">{{ $message }}</span>
+                    @enderror
+                </div>
+            @endif
 
             <div class="form-linha">
                 <div class="form-grupo">
