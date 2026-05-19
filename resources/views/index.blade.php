@@ -2,6 +2,12 @@
 
 @section('conteudo')
 
+    @if(session('success'))
+        <div class="alert alert-success" style="max-width: 700px; margin: 120px auto 1rem; padding: 0.75rem 1rem; border-radius: 10px; font-size: 0.95rem;">
+            {{ session('success') }}
+        </div>
+    @endif
+
   <section class="hero">
     <div class="hero-content">
       <h1>Bem-vindo ao OnTelaria</h1>

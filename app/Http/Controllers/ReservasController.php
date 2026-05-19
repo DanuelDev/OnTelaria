@@ -50,7 +50,13 @@ class ReservasController extends Controller
         $reserva->observacoes   = $request->observacoes;
         $reserva->save();
 
-        return redirect()->route('reservas.index')->with('success', 'Reserva criada com sucesso!');
+        $successMessage = 'Reserva feita com sucesso!';
+
+        if ($user && $user->role === 'client') {
+            return redirect()->route('index')->with('success', $successMessage);
+        }
+
+        return redirect()->route('reservas.index')->with('success', $successMessage);
     }
 
     public function show($id)
