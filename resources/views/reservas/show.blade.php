@@ -98,14 +98,14 @@
 
     {{-- Ações de rodapé --}}
     <div class="form-acoes" style="margin-top:1.5rem;">
-        <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST"
+        <!-- <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST"
               onsubmit="return confirm('Tem certeza que deseja excluir esta reserva?')">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn-excluir-show">
                 <i class="bi bi-trash"></i> Excluir Reserva
             </button>
-        </form>
+        </form> -->
         <a href="{{ route('reservas.edit', $reserva->id) }}" class="btn-salvar">
             <i class="bi bi-pencil-square"></i> Editar Reserva
         </a>

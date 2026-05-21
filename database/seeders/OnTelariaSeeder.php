@@ -17,9 +17,11 @@ class OnTelariaSeeder extends Seeder
         // Quartos
         DB::table('quartos')->insert([
             ['numero' => '1', 'tipo' => 'suite', 'capacidade' => 3, 'preco_diaria' => 100.00],
-            ['numero' => '2', 'tipo' => 'suite', 'capacidade' => 3, 'preco_diaria' => 100.00],
-            ['numero' => '3', 'tipo' => 'luxotriplo', 'capacidade' => 4, 'preco_diaria' => 300.00],
-            // ... adicione os outros quartos aqui no mesmo padrão
+            ['numero' => '2', 'tipo' => 'suite deluxe', 'capacidade' => 3, 'preco_diaria' => 200.00],
+            ['numero' => '3', 'tipo' => 'Luxo Triplo', 'capacidade' => 3, 'preco_diaria' => 300.00],
+            ['numero' => '4', 'tipo' => 'Luxo Casal', 'capacidade' => 2, 'preco_diaria' => 50.00],
+            ['numero' => '5', 'tipo' => 'Suíte Conjugada', 'capacidade' => 4, 'preco_diaria' => 600.00],
+            ['numero' => '6', 'tipo' => 'Apartamento mini', 'capacidade' => 6, 'preco_diaria' => 1000.00],
         ]);
 
         // Hóspede Chatonildo
