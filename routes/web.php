@@ -6,6 +6,7 @@ use App\Http\Controllers\ReservasController;
 use App\Http\Controllers\EstadiasController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClientesController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
 
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
     // --- ROTAS EXCLUSIVAS DE FUNCIONÁRIOS ---
     Route::middleware('can:acesso-funcionario')->group(function () {
         
+        Route::resource('clientes', ClientesController::class);
         Route::resource('quartos', QuartosController::class);
         Route::resource('estadias', EstadiasController::class);
         Route::patch('estadias/{estadia}/cancelar', [EstadiasController::class, 'cancelar'])->name('estadias.cancelar');
