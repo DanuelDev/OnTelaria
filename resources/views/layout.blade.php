@@ -731,7 +731,7 @@
                             <i class="bi bi-grid-1x2-fill"></i> Dashboard
                         </a>
                     </li>
-                    <li><a href="#">Clientes</a></li>
+                    <!-- <li><a href="#">Clientes</a></li> -->
                     <li><a href="{{ route('quartos.index') }}">Quartos</a></li>
                     <li><a href="{{ route('estadias.index') }}">Estadias</a></li>
                     <li>

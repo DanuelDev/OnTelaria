@@ -37,10 +37,16 @@ class DashboardController extends Controller
                                           ->sum('valor_total'),
                 'totalClientes'      => User::where('role', 'client')->count(),
                 'reservasAbertas'    => Reservas::whereIn('status', ['pendente','confirmada'])->count(),
-                'receitaTotal'       => Reservas::where('status', 'concluida')->sum('valor_total'),
+                                // Receita total: soma dos valores das estadias (ativas e concluídas)
+                                // mais reservas concluídas que não possuam uma estadia registrada.
+                                'receitaTotal'       => Estadias::whereIn('status', ['ativa', 'concluida'])->sum('valor_estadia')
+                                                                                    + Reservas::where('status', 'concluida')
+                                                                                        ->whereDoesntHave('estadias')
+                                                                                        ->sum('valor_total'),
                 'reservasPorStatus'  => Reservas::selectRaw('status, count(*) as total')
                                           ->groupBy('status')->pluck('total', 'status'),
-                'clientesAtivos'     => Reservas::with(['hospede', 'quarto'])
+                // Clientes com estadia ativa (modelo Estadias traz info de quarto e datas)
+                'clientesAtivos'     => Estadias::with(['reserva', 'quarto'])
                                           ->where('status', 'ativa')->get(),
             ];
         } else {

@@ -117,10 +117,10 @@
 
       @forelse($clientesAtivos ?? [] as $estadia)
       <div class="cli-row">
-        <div class="cli-avatar">{{ strtoupper(substr($estadia->hospede->nome ?? 'H', 0, 1)) }}</div>
+          <div class="cli-avatar">{{ strtoupper(substr($estadia->reserva->nome_completo ?? $estadia->reserva->hospede->name ?? 'H', 0, 1)) }}</div>
         <div class="cli-info">
-          <span class="cli-nome">{{ $estadia->hospede->nome ?? '—' }}</span>
-          <span class="cli-sub">Quarto {{ $estadia->quarto->numero ?? '?' }} · Check-out: {{ \Carbon\Carbon::parse($estadia->data_checkout)->format('d/m/Y') }}</span>
+            <span class="cli-nome">{{ $estadia->reserva->nome_completo ?? $estadia->reserva->hospede->name ?? '—' }}</span>
+            <span class="cli-sub">Quarto {{ $estadia->quarto->numero ?? '?' }} · Check-out: {{ \Carbon\Carbon::parse($estadia->data_checkout)->format('d/m/Y') }}</span>
         </div>
         <span class="cli-badge">Ativo</span>
       </div>
