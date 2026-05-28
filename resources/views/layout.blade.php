@@ -256,6 +256,10 @@
         border-radius: 50%;
         font-size: 1.9rem;
         margin: 0 auto 1rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #sobre .numero {
