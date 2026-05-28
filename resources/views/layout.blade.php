@@ -1044,7 +1044,7 @@
   ================================================================== --}}
   <header>
     <nav>
-        <a href="{{ url('/') }}" class="logo" style="text-decoration: none;">
+        <a href="{{ url('/index') }}" class="logo" style="text-decoration: none;">
             ON<span style="color: var(--secundaria)">TELARIA</span>
         </a>
 
