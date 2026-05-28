@@ -25,7 +25,7 @@
     {{-- Status badge grande --}}
     @php
         $statusConfig = [
-            'em_andamento' => ['bg' => '#eff6ff', 'color' => '#3b82f6', 'label' => 'Em Andamento',  'icon' => 'arrow-right-circle'],
+            'ativa' => ['bg' => '#eff6ff', 'color' => '#3b82f6', 'label' => 'Em Andamento',  'icon' => 'arrow-right-circle'],
             'concluida'    => ['bg' => '#f0fdf4', 'color' => '#22c55e', 'label' => 'Concluída',      'icon' => 'check-circle'],
             'cancelada'    => ['bg' => '#fef2f2', 'color' => '#ef4444', 'label' => 'Cancelada',      'icon' => 'x-circle'],
             'pendente'     => ['bg' => '#fffbeb', 'color' => '#f59e0b', 'label' => 'Pendente',       'icon' => 'clock'],
@@ -111,7 +111,7 @@
     </div>
 
     {{-- Ações --}}
-    <div style="display: flex; gap: 0.8rem; justify-content: flex-end;">
+    <!-- <div style="display: flex; gap: 0.8rem; justify-content: flex-end;">
         <a href="{{ route('estadias.edit', $estadia->id) }}"
            style="padding: 0.65rem 1.4rem; border-radius: 9px; background: var(--primaria); color: white; font-size: 0.88rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
             <i class="bi bi-pencil"></i> Editar
@@ -124,7 +124,7 @@
                 <i class="bi bi-trash"></i> Excluir
             </button>
         </form>
-    </div>
+    </div> -->
 
 </div>
 @endsection
