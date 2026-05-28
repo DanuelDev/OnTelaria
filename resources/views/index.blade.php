@@ -14,8 +14,7 @@
       <p>Experiência de luxo e conforto em um dos hotéis víntage mais prestigiados da cidade</p>
       
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">Reserve Agora</a>
-        <a href="#" class="btn-outline">Ver Quartos</a>
+        <a href="#quartos" class="btn-outline">Ver Quartos</a>
       </div>
     </div>
   </section>
